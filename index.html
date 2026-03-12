@@ -9,7 +9,7 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
       --bg: #0e0e0e; --line: rgba(255,255,255,0.09);
-      --white: #f0f0ee; --mid: #888884; --dim: #444440;
+      --white: #f0f0ee; --mid: #9a9a96; --dim: #7c7c78;
       --mono: 'IBM Plex Mono', monospace; --sans: 'IBM Plex Sans', sans-serif;
     }
     html { scroll-behavior: smooth; }
@@ -107,10 +107,10 @@
     .overlay.active .overlay-hero-bg { transform: scale(1); }
     .overlay-hero-gradient { position: absolute; inset: 0; background: linear-gradient(to top, rgba(14,14,14,.97) 0%, rgba(14,14,14,.15) 60%, transparent 100%); }
     .overlay-hero-text { position: relative; z-index: 2; padding: 48px 52px; width: 100%; }
-    .overlay-hero-index { font-size: 10px; color: rgba(255,255,255,.3); letter-spacing: .2em; margin-bottom: 14px; }
+    .overlay-hero-index { font-size: 10px; color: rgba(255,255,255,.6); letter-spacing: .2em; margin-bottom: 14px; }
     .overlay-hero-title { font-family: var(--sans); font-size: clamp(2.2rem,5.5vw,4.5rem); font-weight: 300; line-height: 1.08; color: var(--white); margin-bottom: 20px; letter-spacing: -0.025em; }
     .overlay-hero-tags { display: flex; flex-wrap: wrap; gap: 8px; }
-    .overlay-tag { font-size: 10px; padding: 4px 12px; border: 1px solid rgba(255,255,255,.15); color: rgba(255,255,255,.45); letter-spacing: .06em; transition: border-color .2s, color .2s; }
+    .overlay-tag { font-size: 10px; padding: 4px 12px; border: 1px solid rgba(255,255,255,.15); color: rgba(255,255,255,.65); letter-spacing: .06em; transition: border-color .2s, color .2s; }
     .overlay-tag:hover { border-color: rgba(255,255,255,.4); color: rgba(255,255,255,.8); }
     .overlay-body { max-width: 1020px; margin: 0 auto; padding: 72px 52px; }
     .overlay-meta-strip { display: grid; grid-template-columns: repeat(4,1fr); border: 1px solid var(--line); margin-bottom: 72px; }
@@ -217,7 +217,7 @@
     .cb-placeholder--sm   { min-height: 200px; }
     .cb-placeholder:hover { border-color: rgba(255,255,255,0.16); background: #161616; }
     .cb-ph-label { font-family: var(--mono); font-size: 10px; color: var(--dim); letter-spacing: .08em; line-height: 1.9; padding: 20px; }
-    .cb-ph-label em { display: block; font-style: normal; font-size: 9px; color: #333; margin-top: 4px; }
+    .cb-ph-label em { display: block; font-style: normal; font-size: 9px; color: var(--dim); margin-top: 4px; }
     .cb-img-wrap { display: block; cursor: none; overflow: hidden; position: relative; }
     .cb-img-wrap img { width: 100%; height: auto; display: block; transition: transform .45s cubic-bezier(0.25,0.46,0.45,0.94), filter .3s; }
     .cb-img-wrap:hover img { transform: scale(1.02); filter: brightness(1.06); }
@@ -619,7 +619,7 @@
   <!-- Logo identity — full-bleed -->
   <div class="cb-fullbleed">
     <a class="zoomable" href="#" onclick="openLightbox(event,this)">
-      <img src="/assets/LOGO_IDENT_FINAL.gif" alt="Casablanca Records logo video"/>
+      <img src="/assets/casablanca-logo.gif" alt="Casablanca Records logo identity"/>
     </a>
   </div>
 
@@ -627,7 +627,7 @@
     <div class="overlay-section">
       <div class="overlay-section-label">Texture &amp; Atmosphere</div>
       <div class="casablanca-gif-wrap">
-        <img src="/assets/casablanca_texture.png" alt="Casablanca Records visual texture"/>
+        <img src="/assets/casablanca_full.png" alt="Casablanca Records visual texture"/>
         <div class="casablanca-gif-overlay"><span>Electrifying · Visceral · Alive</span></div>
       </div>
     </div>
@@ -640,32 +640,32 @@
         <a class="cb-img-wrap zoomable" href="#" onclick="openLightbox(event,this)">
           <img src="/assets/casablanca1.gif" alt="Casablanca poster"/>
         </a>
-        <a class="cb-img-wrap zoomable" href="#" onclick="openLightbox(event,this)">
-          <img src="/assets/casablanca2.gif" alt="Casablanca poster"/>
-        </a>
-        <a class="cb-img-wrap zoomable" href="#" onclick="openLightbox(event,this)">
-          <img src="/assets/casablanca3.gif" alt="Casablanca poster"/>
-        </a>
+        <div class="cb-placeholder cb-placeholder--sm">
+          <span class="cb-ph-label">Poster 2<br/><em>/assets/casablanca2.gif</em></span>
+        </div>
+        <div class="cb-placeholder cb-placeholder--sm">
+          <span class="cb-ph-label">Poster 3<br/><em>/assets/casablanca3.gif</em></span>
+        </div>
       </div>
 
       <!-- Wide mockup -->
       <div class="cb-mockup-wide">
-        <a class="cb-img-wrap zoomable" href="#" onclick="openLightbox(event,this)">
-          <img src="/assets/casablanca_ooo.png" alt="Casablanca OOO"/>
-        </a>
+        <div class="cb-placeholder cb-placeholder--wide">
+          <span class="cb-ph-label">Merchandise / Packaging<br/><em>/assets/casablanca_merch.png</em></span>
+        </div>
       </div>
 
       <!-- Detail row -->
       <div class="cb-mockup-three">
-        <a class="cb-img-wrap zoomable" href="#" onclick="openLightbox(event,this)">
-          <img src="/assets/casablanca_web.gif" alt="Casablanca Web Design"/>
-        </a>
-        <a class="cb-img-wrap zoomable" href="#" onclick="openLightbox(event,this)">
-          <img src="/assets/casablanca_yt.gif" alt="Casablanca Youtube"/>
-        </a>
-        <a class="cb-img-wrap zoomable" href="#" onclick="openLightbox(event,this)">
-          <img src="/assets/casablanca_colors.png" alt="Casablanca Colors"/>
-        </a>
+        <div class="cb-placeholder cb-placeholder--sm">
+          <span class="cb-ph-label">Web<br/><em>/assets/casablanca_web.gif</em></span>
+        </div>
+        <div class="cb-placeholder cb-placeholder--sm">
+          <span class="cb-ph-label">YouTube<br/><em>/assets/casablanca_yt.gif</em></span>
+        </div>
+        <div class="cb-placeholder cb-placeholder--sm">
+          <span class="cb-ph-label">Colour System<br/><em>/assets/casablanca_colors.png</em></span>
+        </div>
       </div>
     </div>
 
