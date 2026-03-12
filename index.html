@@ -33,34 +33,9 @@
     nav a:hover::after { width: 100%; }
 
     .hero { min-height: 100vh; padding-top: 61px; display: flex; flex-direction: column; position: relative; overflow: hidden; border-bottom: 1px solid var(--line); }
-    .hero-bg-name {
-      position: absolute;
-      bottom: 0.05em;
-      left: 0;
-      width: 100%;
-      overflow: hidden;
-      pointer-events: none;
-      user-select: none;
-      z-index: 0;
-      white-space: nowrap;
-    }
-    .marquee-track {
-      display: inline-flex;
-      white-space: nowrap;
-      animation: marquee 18s linear infinite;
-      font-family: var(--sans);
-      font-size: clamp(9rem, 20vw, 21rem);
-      font-weight: 300;
-      letter-spacing: -0.04em;
-      color: transparent;
-      -webkit-text-stroke: 1px rgba(255,255,255,0.055);
-      line-height: 1;
-      will-change: transform;
-    }
-    @keyframes marquee {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-33.333%); }
-    }
+    .hero-bg-name { position: absolute; bottom: 0.05em; left: 0; width: 100%; overflow: hidden; pointer-events: none; user-select: none; z-index: 0; white-space: nowrap; }
+    .marquee-track { display: inline-flex; white-space: nowrap; animation: marquee 18s linear infinite; font-family: var(--sans); font-size: clamp(9rem,20vw,21rem); font-weight: 300; letter-spacing: -0.04em; color: transparent; -webkit-text-stroke: 1px rgba(255,255,255,0.055); line-height: 1; will-change: transform; }
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-33.333%); } }
     .hero-center { flex: 1; position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; padding: 40px 24px 0; }
     .hero-photo-wrap { width: clamp(180px,24vw,340px); will-change: transform; }
     .hero-photo { width: 100%; height: auto; display: block; }
@@ -150,7 +125,6 @@
     .overlay-section p:last-child { margin-bottom: 0; }
     .overlay-section p strong { color: var(--white); font-weight: 400; }
 
-    /* Images — no forced crop */
     .img-wide { width: 100%; display: block; margin-bottom: 2px; }
     .img-wide img { width: 100%; height: auto; display: block; }
     .img-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-bottom: 2px; align-items: start; }
@@ -179,7 +153,6 @@
     .reflect-cell.next .reflect-cell-label { color: #b07a3a; }
     .reflect-cell p { font-family: var(--sans); font-size: 13px; color: var(--mid); font-weight: 300; line-height: 1.75; }
 
-    /* Lightbox */
     .lightbox { position: fixed; inset: 0; z-index: 9000; background: rgba(6,6,6,.96); display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity .3s ease; backdrop-filter: blur(8px); }
     .lightbox.open { opacity: 1; pointer-events: all; }
     .lightbox-inner { position: relative; max-width: 92vw; max-height: 90vh; }
@@ -195,181 +168,63 @@
     .lightbox-counter { position: absolute; bottom: -30px; left: 50%; transform: translateX(-50%); font-size: 10px; color: var(--dim); letter-spacing: .14em; white-space: nowrap; }
 
     /* ── Neuron Design System highlight section ── */
-    .neuron-ds-section {
-      background: linear-gradient(160deg, rgba(100,39,220,0.07) 0%, rgba(100,39,220,0.03) 60%, transparent 100%);
-      border: 1px solid rgba(100,39,220,0.2);
-      padding: 40px;
-      margin-bottom: 72px;
-      position: relative;
-    }
-    .neuron-ds-section::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0;
-      width: 3px; height: 100%;
-      background: linear-gradient(to bottom, #6427DC, rgba(100,39,220,0.2));
-    }
-    .neuron-ds-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 32px;
-      gap: 32px;
-    }
+    .neuron-ds-section { background: linear-gradient(160deg, rgba(100,39,220,0.07) 0%, rgba(100,39,220,0.03) 60%, transparent 100%); border: 1px solid rgba(100,39,220,0.2); padding: 40px; margin-bottom: 72px; position: relative; }
+    .neuron-ds-section::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 100%; background: linear-gradient(to bottom, #6427DC, rgba(100,39,220,0.2)); }
+    .neuron-ds-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 32px; gap: 32px; }
     .neuron-ds-header-left { flex: 1; }
-    .neuron-ds-desc {
-      font-family: var(--sans);
-      font-size: 13px;
-      color: var(--mid);
-      font-weight: 300;
-      line-height: 1.7;
-      margin-top: 12px;
-    }
-    .neuron-ds-header-right {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      align-items: flex-end;
-      flex-shrink: 0;
-    }
-    .neuron-ds-pill {
-      font-family: var(--mono);
-      font-size: 9px;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: #9a6ef5;
-      border: 1px solid rgba(100,39,220,0.3);
-      padding: 4px 10px;
-      white-space: nowrap;
-    }
-
-    /* image wrappers with hover label */
-    .neuron-ds-img-wrap {
-      display: block;
-      position: relative;
-      overflow: hidden;
-      cursor: none;
-    }
-    .neuron-ds-img-wrap img {
-      width: 100%; height: auto; display: block;
-      transition: transform .45s cubic-bezier(0.25,0.46,0.45,0.94), filter .3s;
-    }
+    .neuron-ds-desc { font-family: var(--sans); font-size: 13px; color: var(--mid); font-weight: 300; line-height: 1.7; margin-top: 12px; }
+    .neuron-ds-header-right { display: flex; flex-direction: column; gap: 6px; align-items: flex-end; flex-shrink: 0; }
+    .neuron-ds-pill { font-family: var(--mono); font-size: 9px; letter-spacing: .12em; text-transform: uppercase; color: #9a6ef5; border: 1px solid rgba(100,39,220,0.3); padding: 4px 10px; white-space: nowrap; }
+    .neuron-ds-img-wrap { display: block; position: relative; overflow: hidden; cursor: none; }
+    .neuron-ds-img-wrap img { width: 100%; height: auto; display: block; transition: transform .45s cubic-bezier(0.25,0.46,0.45,0.94), filter .3s; }
     .neuron-ds-img-wrap:hover img { transform: scale(1.03); filter: brightness(1.07); }
-    .neuron-ds-img-label {
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      padding: 10px 14px;
-      font-size: 9.5px;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.5);
-      background: linear-gradient(to top, rgba(0,0,0,0.55), transparent);
-      opacity: 0;
-      transition: opacity .22s;
-    }
+    .neuron-ds-img-label { position: absolute; bottom: 0; left: 0; right: 0; padding: 10px 14px; font-size: 9.5px; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,0.5); background: linear-gradient(to top, rgba(0,0,0,0.55), transparent); opacity: 0; transition: opacity .22s; }
     .neuron-ds-img-wrap:hover .neuron-ds-img-label { opacity: 1; }
-
-    /* layout rows */
     .neuron-ds-full { margin-bottom: 2px; }
-    .neuron-ds-two {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2px;
-      margin-bottom: 2px;
-    }
-    .neuron-ds-three {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 2px;
-    }
-
-    @media (max-width: 768px) {
-      .neuron-ds-section { padding: 24px; }
-      .neuron-ds-header { flex-direction: column; }
-      .neuron-ds-header-right { flex-direction: row; flex-wrap: wrap; align-items: flex-start; }
-      .neuron-ds-two,
-      .neuron-ds-three { grid-template-columns: 1fr; }
-    }
+    .neuron-ds-two { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+    .ds-label-inline { border: none; margin: 0; padding: 0; }
+    .overlay-section.neuron-ds-section { margin-bottom: 0; }
 
     /* ── Neuron-specific layouts ── */
+    .neuron-split { display: grid; grid-template-columns: 3fr 2fr; gap: 2px; margin-top: 2px; align-items: start; }
+    .neuron-split-main, .neuron-split-side { overflow: hidden; }
+    .neuron-split-main a, .neuron-split-side a { display: block; cursor: none; overflow: hidden; position: relative; }
+    .neuron-split-main img, .neuron-split-side img { width: 100%; height: auto; display: block; }
+    .neuron-split-main a img, .neuron-split-side a img { transition: transform .45s cubic-bezier(0.25,0.46,0.45,0.94), filter .3s; }
+    .neuron-split-main a:hover img, .neuron-split-side a:hover img { transform: scale(1.03); filter: brightness(1.07); }
+    .neuron-gif-feature { display: grid; grid-template-columns: 1fr 280px; gap: 32px; align-items: center; border: 1px solid var(--line); overflow: hidden; }
+    .neuron-gif { width: 100%; height: auto; display: block; }
+    .neuron-gif-caption { padding: 32px 32px 32px 0; display: flex; flex-direction: column; gap: 14px; }
+    .neuron-gif-label { font-size: 9px; letter-spacing: .2em; text-transform: uppercase; color: var(--dim); display: block; }
+    .neuron-gif-caption p { font-family: var(--sans); font-size: 13px; font-weight: 300; color: var(--mid); line-height: 1.75; margin: 0; }
 
-    /* Brand identity: 60/40 asymmetric split below the hero image */
-    .neuron-split {
-      display: grid;
-      grid-template-columns: 3fr 2fr;
-      gap: 2px;
-      margin-top: 2px;
-      align-items: start;
-    }
-    .neuron-split-main { overflow: hidden; }
-    .neuron-split-main a { display: block; }
-    .neuron-split-main img { width: 100%; height: auto; display: block; }
-    .neuron-split-side { overflow: hidden; }
-    .neuron-split-side a { display: block; }
-    .neuron-split-side img { width: 100%; height: auto; display: block; }
-
-    /* GIF feature block */
-    .neuron-gif-feature {
-      display: grid;
-      grid-template-columns: 1fr 280px;
-      gap: 32px;
-      align-items: center;
-      border: 1px solid var(--line);
-      padding: 0;
-      overflow: hidden;
-    }
-    .neuron-gif {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-    .neuron-gif-caption {
-      padding: 32px 32px 32px 0;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-    .neuron-gif-label {
-      font-size: 9px;
-      letter-spacing: .2em;
-      text-transform: uppercase;
-      color: var(--dim);
-      display: block;
-    }
-    .neuron-gif-caption p {
-      font-family: var(--sans);
-      font-size: 13px;
-      font-weight: 300;
-      color: var(--mid);
-      line-height: 1.75;
-      margin: 0;
-    }
-
-    /* Zoomable styles for neuron-split anchors */
-    .neuron-split-main a,
-    .neuron-split-side a {
-      cursor: none;
-      display: block;
-      overflow: hidden;
-      position: relative;
-    }
-    .neuron-split-main a img,
-    .neuron-split-side a img {
-      transition: transform .45s cubic-bezier(0.25,0.46,0.45,0.94), filter .3s;
-    }
-    .neuron-split-main a:hover img,
-    .neuron-split-side a:hover img {
-      transform: scale(1.03);
-      filter: brightness(1.07);
-    }
+    /* ── Casablanca overlay ── */
+    .overlay-hero--dark .overlay-hero-bg img { object-position: center center; }
+    .cb-fullbleed { width: 100%; }
+    .cb-fullbleed a { display: block; cursor: none; }
+    .cb-fullbleed img { width: 100%; height: auto; display: block; transition: filter .4s; }
+    .cb-fullbleed a:hover img { filter: brightness(1.06); }
+    .casablanca-gif-wrap { position: relative; width: 100%; overflow: hidden; background: #000; }
+    .casablanca-gif-wrap img { width: 100%; height: auto; display: block; }
+    .casablanca-gif-overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 20px 28px; background: linear-gradient(to top, rgba(0,0,0,0.7), transparent); font-family: var(--mono); font-size: 10px; letter-spacing: .22em; text-transform: uppercase; color: rgba(255,160,120,0.7); }
+    .cb-mockup-hero  { margin-bottom: 3px; }
+    .cb-mockup-pair  { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; margin-bottom: 3px; }
+    .cb-mockup-wide  { margin-bottom: 3px; }
+    .cb-mockup-three { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 3px; }
+    .cb-placeholder { background: #111; border: 1px dashed rgba(255,255,255,0.08); min-height: 260px; display: flex; align-items: center; justify-content: center; text-align: center; transition: border-color .2s, background .2s; cursor: none; }
+    .cb-placeholder--tall { min-height: 480px; }
+    .cb-placeholder--wide { min-height: 320px; }
+    .cb-placeholder--sm   { min-height: 200px; }
+    .cb-placeholder:hover { border-color: rgba(255,255,255,0.16); background: #161616; }
+    .cb-ph-label { font-family: var(--mono); font-size: 10px; color: var(--dim); letter-spacing: .08em; line-height: 1.9; padding: 20px; }
+    .cb-ph-label em { display: block; font-style: normal; font-size: 9px; color: #333; margin-top: 4px; }
+    .cb-img-wrap { display: block; cursor: none; overflow: hidden; position: relative; }
+    .cb-img-wrap img { width: 100%; height: auto; display: block; transition: transform .45s cubic-bezier(0.25,0.46,0.45,0.94), filter .3s; }
+    .cb-img-wrap:hover img { transform: scale(1.02); filter: brightness(1.06); }
 
     .overlay::-webkit-scrollbar       { width: 3px; }
     .overlay::-webkit-scrollbar-track { background: var(--bg); }
     .overlay::-webkit-scrollbar-thumb { background: var(--dim); border-radius: 2px; }
-
-    .ds-label-inline { border: none; margin: 0; padding: 0; }
-    /* ── neuron-ds-section overrides overlay-section base ── */
-    .overlay-section.neuron-ds-section { margin-bottom: 0; }
 
     @media (max-width: 768px) {
       nav { grid-template-columns: 1fr 1fr; gap: 12px; }
@@ -388,9 +243,10 @@
       .neuron-ds-section { padding: 24px; }
       .neuron-ds-header { flex-direction: column; }
       .neuron-ds-header-right { flex-direction: row; flex-wrap: wrap; align-items: flex-start; }
-      .neuron-ds-two, .neuron-ds-three { grid-template-columns: 1fr; }
+      .neuron-ds-two { grid-template-columns: 1fr; }
       .neuron-split, .neuron-gif-feature { grid-template-columns: 1fr; }
       .neuron-gif-caption { padding: 24px; }
+      .cb-mockup-pair, .cb-mockup-three { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -474,6 +330,15 @@
       <div>
         <div class="proj-title">Neuron Digital Rebrand &amp; Design System</div>
         <div class="proj-sub">Neuron Digital &nbsp;·&nbsp; Branding, Design Systems</div>
+      </div>
+      <div class="open-hint">View project</div>
+      <div class="proj-arrow">↗</div>
+    </div>
+    <div class="project-row reveal" style="transition-delay:.16s" onclick="openOverlay('casablanca')">
+      <div class="proj-index">#003</div>
+      <div>
+        <div class="proj-title">Casablanca Records — Brand Identity</div>
+        <div class="proj-sub">University Project &nbsp;·&nbsp; Brand Identity, Visual Design</div>
       </div>
       <div class="open-hint">View project</div>
       <div class="proj-arrow">↗</div>
@@ -605,7 +470,7 @@
     </div>
     <div class="overlay-section">
       <div class="overlay-section-label">Reflection</div>
-      <p>This capstone project was an invaulable experience. It taught me how to design for players, while making the system efficient and fluid. For example, when a player mutes themselves on a console controller, the other players know and can continue on the voice chat without them, or vice versa, when a player is speaking, the others can see their activity.</p>
+      <p>This capstone project was an invaluable experience. It taught me how to design for players, while making the system efficient and fluid. For example, when a player mutes themselves on a console controller, the other players know and can continue on the voice chat without them, or vice versa, when a player is speaking, the others can see their activity.</p>
       <div class="reflect-grid">
         <div class="reflect-cell good"><div class="reflect-cell-label">✓ What worked</div><p>The weekly stakeholder meetings forced me to synthesize messy in-progress work into clear decisions. In particular, the engineer feedback loop was invaluable: designing within real constraints is where the interesting problems live.</p></div>
         <div class="reflect-cell next"><div class="reflect-cell-label">→ Next time</div><p>I'd invest more time understanding the design rationale early, asking my peer UX designers why a solution was chosen, what alternatives were considered, and what player research informed the decision, to better design for the players.</p></div>
@@ -644,13 +509,11 @@
       <div class="meta-cell"><div class="meta-cell-label">Deliverables</div><div class="meta-cell-value">Brand Identity<br/>Design System</div></div>
       <div class="meta-cell"><div class="meta-cell-label">Focus</div><div class="meta-cell-value">Cohesion &amp;<br/>Scalability</div></div>
     </div>
-
     <div class="overlay-section">
       <div class="overlay-section-label">Overview</div>
       <p>A full rebrand and design system for Neuron Digital — not just a visual refresh, but a <strong>scalable brand architecture</strong> built to grow with the company across products, platforms, and contexts.</p>
       <p>The goal was coherence without rigidity: a system flexible enough to expand into new surfaces while maintaining a clear, ownable visual identity.</p>
     </div>
-
     <div class="overlay-section">
       <div class="overlay-section-label">Brand Identity</div>
       <div class="img-wide">
@@ -665,7 +528,6 @@
         </div>
       </div>
     </div>
-
     <div class="overlay-section">
       <div class="overlay-section-label">Motion &amp; Animation</div>
       <div class="neuron-gif-feature">
@@ -676,7 +538,6 @@
         </div>
       </div>
     </div>
-
     <div class="overlay-section">
       <div class="overlay-section-label">Process</div>
       <div class="process-list">
@@ -685,7 +546,6 @@
         <div class="process-step"><div class="ps-num">03</div><div><div class="ps-title">Component System &amp; Documentation</div><div class="ps-body">Translated the brand into a scalable UI component library with clear usage guidelines — ensuring the system could be handed off and extended by any team member.</div></div></div>
       </div>
     </div>
-
     <div class="overlay-section neuron-ds-section">
       <div class="neuron-ds-header">
         <div class="neuron-ds-header-left">
@@ -698,16 +558,12 @@
           <span class="neuron-ds-pill">Interactions</span>
         </div>
       </div>
-
-      <!-- Full-width colour palette -->
       <div class="neuron-ds-full">
         <a class="zoomable neuron-ds-img-wrap" href="#" onclick="openLightbox(event,this)">
           <img src="/assets/Colors.jpg" alt="Neuron colour palette"/>
           <div class="neuron-ds-img-label">Colour Palette</div>
         </a>
       </div>
-
-      <!-- Two-col: buttons + modals -->
       <div class="neuron-ds-two">
         <a class="zoomable neuron-ds-img-wrap" href="#" onclick="openLightbox(event,this)">
           <img src="/assets/Buttons.jpg" alt="Button components"/>
@@ -719,7 +575,112 @@
         </a>
       </div>
     </div>
+  </div>
+</div>
 
+<!-- OVERLAY: CASABLANCA -->
+<div class="overlay" id="overlay-casablanca">
+  <div class="overlay-nav">
+    <div class="overlay-nav-left">
+      <span class="overlay-label">University Project &nbsp;·&nbsp; #003</span>
+      <span class="overlay-title-small">Casablanca Records — Brand Identity</span>
+    </div>
+    <button class="close-btn" onclick="closeOverlay('casablanca')">Close ✕</button>
+  </div>
+  <div class="overlay-hero overlay-hero--dark">
+    <div class="overlay-hero-bg"><img src="/assets/casablanca-full.png" alt="Casablanca Records neon sign"/></div>
+    <div class="overlay-hero-gradient"></div>
+    <div class="overlay-hero-text">
+      <div class="overlay-hero-index">Project 003</div>
+      <div class="overlay-hero-title">Casablanca Records<br/>Brand Identity</div>
+      <div class="overlay-hero-tags">
+        <span class="overlay-tag">Brand Identity</span>
+        <span class="overlay-tag">Visual Design</span>
+        <span class="overlay-tag">Typography</span>
+        <span class="overlay-tag">University Project</span>
+      </div>
+    </div>
+  </div>
+  <div class="overlay-body">
+    <div class="overlay-meta-strip">
+      <div class="meta-cell"><div class="meta-cell-label">Context</div><div class="meta-cell-value">University Project<br/>Junior Year</div></div>
+      <div class="meta-cell"><div class="meta-cell-label">Role</div><div class="meta-cell-value">Brand Designer</div></div>
+      <div class="meta-cell"><div class="meta-cell-label">Deliverables</div><div class="meta-cell-value">Brand Identity<br/>Visual System</div></div>
+      <div class="meta-cell"><div class="meta-cell-label">Era</div><div class="meta-cell-value">1970s Disco<br/>Reimagined</div></div>
+    </div>
+    <div class="overlay-section">
+      <div class="overlay-section-label">Overview</div>
+      <p>In the 1970s, Casablanca Records was the home of iconic acts — <strong>KISS, Donna Summer, Parliament, Village People</strong>. The label defined an era of excess, spectacle, and fearless self-expression.</p>
+      <p>The brief: design a <strong>bright and electrifying personality</strong> for this brand — one that captures the energy of disco as a cultural movement, not just a music genre.</p>
+    </div>
+  </div>
+
+  <!-- Full-bleed neon sign — edge to edge, outside overlay-body padding -->
+  <div class="cb-fullbleed">
+    <a class="zoomable" href="#" onclick="openLightbox(event,this)">
+      <img src="/assets/casablanca-full.png" alt="Casablanca Records neon sign"/>
+    </a>
+  </div>
+
+  <div class="overlay-body">
+    <div class="overlay-section">
+      <div class="overlay-section-label">Motion &amp; Energy</div>
+      <div class="casablanca-gif-wrap">
+        <img src="/assets/casablanca-motion.gif" alt="Casablanca Records motion"/>
+        <div class="casablanca-gif-overlay"><span>Electrifying · Visceral · Alive</span></div>
+      </div>
+    </div>
+
+    <div class="overlay-section">
+      <div class="overlay-section-label">Mockups &amp; Applications</div>
+      <div class="cb-mockup-hero">
+        <div class="cb-placeholder cb-placeholder--tall">
+          <span class="cb-ph-label">Hero Mockup<br/><em>/assets/casablanca-mockup-1.jpg</em></span>
+        </div>
+      </div>
+      <div class="cb-mockup-pair">
+        <div class="cb-placeholder">
+          <span class="cb-ph-label">Poster / Print<br/><em>/assets/casablanca-mockup-2.jpg</em></span>
+        </div>
+        <div class="cb-placeholder">
+          <span class="cb-ph-label">Poster / Print<br/><em>/assets/casablanca-mockup-3.jpg</em></span>
+        </div>
+      </div>
+      <div class="cb-mockup-wide">
+        <div class="cb-placeholder cb-placeholder--wide">
+          <span class="cb-ph-label">Merchandise / Packaging<br/><em>/assets/casablanca-mockup-4.jpg</em></span>
+        </div>
+      </div>
+      <div class="cb-mockup-three">
+        <div class="cb-placeholder cb-placeholder--sm">
+          <span class="cb-ph-label">Detail<br/><em>/assets/casablanca-mockup-5.jpg</em></span>
+        </div>
+        <div class="cb-placeholder cb-placeholder--sm">
+          <span class="cb-ph-label">Detail<br/><em>/assets/casablanca-mockup-6.jpg</em></span>
+        </div>
+        <div class="cb-placeholder cb-placeholder--sm">
+          <span class="cb-ph-label">Detail<br/><em>/assets/casablanca-mockup-7.jpg</em></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="overlay-section">
+      <div class="overlay-section-label">Concept</div>
+      <div class="process-list">
+        <div class="process-step"><div class="ps-num">01</div><div><div class="ps-title">Disco as Futurism</div><div class="ps-body">During the 1970s, disco was people's way of being modern and futuristic. The visual language needed to feel ahead of its time — electric, luminous, and unapologetically bold.</div></div></div>
+        <div class="process-step"><div class="ps-num">02</div><div><div class="ps-title">The Roster as a Compass</div><div class="ps-body">Every visual decision was filtered through the label's acts: KISS, Donna Summer, Village People, Cher, Lipps Inc — and a lineage that extends to Martin Solveig, Tiësto, Felix Jaehn, KUNGS, and SG Lewis. Spectacle and soul in equal measure.</div></div></div>
+        <div class="process-step"><div class="ps-num">03</div><div><div class="ps-title">Neon as Identity</div><div class="ps-body">Neon became the core visual metaphor — warm, glowing, slightly imperfect. The kind of sign you'd see burning in a dark street at 2am, pulling you in from across the block.</div></div></div>
+      </div>
+    </div>
+
+    <div class="overlay-section">
+      <div class="overlay-section-label">Reflection</div>
+      <p>This was one of my earliest brand identity projects — working on a real cultural artifact with genuine history forced me to think about what a brand <em>feels like</em>, not just what it looks like. The constraint of the 70s era pushed me toward a bolder, more atmospheric visual language than I'd normally reach for.</p>
+      <div class="reflect-grid">
+        <div class="reflect-cell good"><div class="reflect-cell-label">✓ What worked</div><p>Leading with emotion and era rather than trying to modernise the brand. The neon treatment gave the identity an immediacy and warmth that felt true to the label's personality.</p></div>
+        <div class="reflect-cell next"><div class="reflect-cell-label">→ Next time</div><p>I'd push further into the full brand system — how does this identity live on merchandise, packaging, and digital? The sign is a strong anchor; I'd want to build more surfaces around it.</p></div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -780,7 +741,6 @@
     document.body.style.overflow = '';
   }
 
-  /* Lightbox — scoped to the active overlay so Riot and Neuron images stay separate */
   const lightbox        = document.getElementById('lightbox');
   const lightboxImg     = document.getElementById('lightboxImg');
   const lightboxCounter = document.getElementById('lightboxCounter');
@@ -794,7 +754,6 @@
     e.preventDefault();
     const activeOverlay = document.querySelector('.overlay.active');
     const scope = activeOverlay || document;
-    // collect every img inside any anchor that triggers openLightbox
     lbImages = Array.from(scope.querySelectorAll('a[onclick*="openLightbox"] img'));
     const clickedImg = anchor.querySelector('img');
     lbIndex = lbImages.indexOf(clickedImg);
