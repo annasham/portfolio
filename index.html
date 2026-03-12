@@ -226,6 +226,59 @@
     .overlay::-webkit-scrollbar-track { background: var(--bg); }
     .overlay::-webkit-scrollbar-thumb { background: var(--dim); border-radius: 2px; }
 
+    /* ── PLAYNEXT overlay ── */
+    .pn-accent { color: #c8f135; }
+    .pn-fullbleed { width: 100%; margin-bottom: 3px; }
+    .pn-fullbleed a, .pn-fullbleed-plain { display: block; cursor: none; overflow: hidden; }
+    .pn-fullbleed img, .pn-fullbleed-plain img { width: 100%; height: auto; display: block; transition: filter .4s, transform .45s cubic-bezier(0.25,0.46,0.45,0.94); }
+    .pn-fullbleed a:hover img { filter: brightness(1.07); transform: scale(1.02); }
+
+    /* type test — 3 horizontal photos side by side */
+    .pn-type-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 3px; margin-bottom: 3px; }
+    .pn-type-row a { display: block; cursor: none; overflow: hidden; }
+    .pn-type-row img { width: 100%; height: auto; display: block; transition: transform .45s cubic-bezier(0.25,0.46,0.45,0.94), filter .3s; }
+    .pn-type-row a:hover img { transform: scale(1.03); filter: brightness(1.07); }
+
+    /* speaker slides — 3 horizontal GIF/videos */
+    .pn-speaker-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 3px; margin-bottom: 3px; }
+    .pn-speaker-cell { position: relative; overflow: hidden; cursor: none; }
+    .pn-speaker-cell a { display: block; cursor: none; }
+    .pn-speaker-cell img { width: 100%; height: auto; display: block; transition: transform .45s cubic-bezier(0.25,0.46,0.45,0.94), filter .3s; }
+    .pn-speaker-cell a:hover img { transform: scale(1.02); filter: brightness(1.08); }
+    .pn-speaker-label { position: absolute; bottom: 0; left: 0; right: 0; padding: 12px 16px; background: linear-gradient(to top, rgba(0,0,0,0.75), transparent); font-size: 9px; letter-spacing: .18em; text-transform: uppercase; color: rgba(255,255,255,0.7); pointer-events: none; }
+
+    /* dynamic posters — vertical, 3-col grid */
+    .pn-poster-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 3px; align-items: start; margin-bottom: 3px; }
+    .pn-poster-grid a { display: block; cursor: none; overflow: hidden; }
+    .pn-poster-grid img { width: 100%; height: auto; display: block; transition: transform .5s cubic-bezier(0.25,0.46,0.45,0.94), filter .3s; }
+    .pn-poster-grid a:hover img { transform: scale(1.04); filter: brightness(1.06); }
+
+    /* social media — 2×2 square grid */
+    .pn-social-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; margin-bottom: 3px; }
+    .pn-social-grid a { display: block; cursor: none; overflow: hidden; aspect-ratio: 1 / 1; }
+    .pn-social-grid img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .45s cubic-bezier(0.25,0.46,0.45,0.94), filter .3s; }
+    .pn-social-grid a:hover img { transform: scale(1.04); filter: brightness(1.07); }
+
+    /* merch — 2×2 horizontal grid (landscape cells) */
+    .pn-merch-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; }
+    .pn-merch-grid a { display: block; cursor: none; overflow: hidden; aspect-ratio: 4 / 3; }
+    .pn-merch-grid img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .45s cubic-bezier(0.25,0.46,0.45,0.94), filter .3s; }
+    .pn-merch-grid a:hover img { transform: scale(1.03); filter: brightness(1.06); }
+
+    /* play-in values strip */
+    .pn-values-strip { display: flex; flex-wrap: wrap; gap: 0; border: 1px solid var(--line); margin-top: 28px; }
+    .pn-value { flex: 1; min-width: 120px; padding: 18px 22px; border-right: 1px solid var(--line); transition: background .18s; }
+    .pn-value:last-child { border-right: none; }
+    .pn-value:hover { background: rgba(200,241,53,0.04); }
+    .pn-value-word { font-size: 11px; font-weight: 500; color: #c8f135; letter-spacing: .06em; display: block; margin-bottom: 4px; }
+    .pn-value-desc { font-size: 10px; color: var(--dim); font-weight: 300; line-height: 1.6; }
+
+    /* placeholder tiles reused */
+    .pn-ph { background: #111; border: 1px dashed rgba(255,255,255,0.08); min-height: 220px; display: flex; align-items: center; justify-content: center; text-align: center; transition: border-color .2s, background .2s; cursor: none; }
+    .pn-ph:hover { border-color: rgba(255,255,255,0.16); background: #161616; }
+    .pn-ph-label { font-family: var(--mono); font-size: 10px; color: var(--dim); letter-spacing: .08em; line-height: 1.9; padding: 20px; }
+    .pn-ph-label em { display: block; font-style: normal; font-size: 9px; color: var(--dim); margin-top: 4px; }
+
     @media (max-width: 768px) {
       nav { grid-template-columns: 1fr 1fr; gap: 12px; }
       .hero-bottom { grid-template-columns: 1fr; text-align: center; }
@@ -246,7 +299,11 @@
       .neuron-ds-two { grid-template-columns: 1fr; }
       .neuron-split, .neuron-gif-feature { grid-template-columns: 1fr; }
       .neuron-gif-caption { padding: 24px; }
-      .cb-mockup-pair, .cb-mockup-three { grid-template-columns: 1fr; }
+      .pn-type-row, .pn-speaker-row, .pn-poster-grid { grid-template-columns: 1fr; }
+      .pn-social-grid, .pn-merch-grid { grid-template-columns: 1fr; }
+      .pn-values-strip { flex-direction: column; }
+      .pn-value { border-right: none; border-bottom: 1px solid var(--line); }
+      .pn-value:last-child { border-bottom: none; }
     }
   </style>
 </head>
@@ -339,6 +396,15 @@
       <div>
         <div class="proj-title">Casablanca Records — Brand Identity</div>
         <div class="proj-sub">University Project &nbsp;·&nbsp; Brand Identity, Visual Design</div>
+      </div>
+      <div class="open-hint">View project</div>
+      <div class="proj-arrow">↗</div>
+    </div>
+    <div class="project-row reveal" style="transition-delay:.24s" onclick="openOverlay('playnext')">
+      <div class="proj-index">#004</div>
+      <div>
+        <div class="proj-title">PLAYNEXT — Game Developer Conference</div>
+        <div class="proj-sub">University Project &nbsp;·&nbsp; Event Branding, Motion, Print</div>
       </div>
       <div class="open-hint">View project</div>
       <div class="proj-arrow">↗</div>
@@ -651,20 +717,20 @@
       <!-- Wide mockup -->
       <div class="cb-mockup-wide">
         <a class="cb-img-wrap zoomable" href="#" onclick="openLightbox(event,this)">
-          <img src="/assets/casablanca_merch.png" alt="Casablanca merchandise"/>
+          <img src="/assets/casablanca_merch.png" alt="Casablanca merch"/>
         </a>
       </div>
 
       <!-- Detail row -->
       <div class="cb-mockup-three">
         <a class="cb-img-wrap zoomable" href="#" onclick="openLightbox(event,this)">
-          <img src="/assets/casablanca_yt.gif" alt="Casablanca Youtube"/>
+          <img src="/assets/casablanca_web.gif" alt="Casablanca web"/>
         </a>
         <a class="cb-img-wrap zoomable" href="#" onclick="openLightbox(event,this)">
-          <img src="/assets/casablanca_web.gif" alt="Casablanca Web"/>
+          <img src="/assets/casablanca_yt.gif" alt="Casablanca yt"/>
         </a>
         <a class="cb-img-wrap zoomable" href="#" onclick="openLightbox(event,this)">
-          <img src="/assets/casablanca_colors.png" alt="Casablanca Colors"/>
+          <img src="/assets/casablanca_colors.png" alt="Casablanca colors"/>
         </a>
       </div>
     </div>
@@ -686,6 +752,174 @@
         <div class="reflect-cell next"><div class="reflect-cell-label">→ Next time</div><p>I'd push further into the full system — how does this identity live on merchandise, packaging, and digital? The sign is a strong anchor; I'd want to build more surfaces around it.</p></div>
       </div>
     </div>
+  </div>
+</div>
+
+<!-- OVERLAY: PLAYNEXT -->
+<div class="overlay" id="overlay-playnext">
+  <div class="overlay-nav">
+    <div class="overlay-nav-left">
+      <span class="overlay-label">University Project &nbsp;·&nbsp; #004</span>
+      <span class="overlay-title-small">PLAYNEXT — Game Developer Conference</span>
+    </div>
+    <button class="close-btn" onclick="closeOverlay('playnext')">Close ✕</button>
+  </div>
+
+  <!-- Hero -->
+  <div class="overlay-hero overlay-hero--dark">
+    <div class="overlay-hero-bg">
+      <div class="overlay-hero-bg"><img src="/assets/playnext_logo_solid.png" alt="playnext logo sign"/></div>
+    </div>
+    <div class="overlay-hero-gradient"></div>
+    <div class="overlay-hero-text">
+      <div class="overlay-hero-index">Project 004</div>
+      <div class="overlay-hero-title">PLAY<span class="pn-accent">NEXT</span><br/>Game Developer Conference</div>
+      <div class="overlay-hero-tags">
+        <span class="overlay-tag">Event Branding</span>
+        <span class="overlay-tag">Motion Design</span>
+        <span class="overlay-tag">Print</span>
+        <span class="overlay-tag">Social Media</span>
+        <span class="overlay-tag">Merch</span>
+        <span class="overlay-tag">University Project</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="overlay-body">
+    <div class="overlay-meta-strip">
+      <div class="meta-cell"><div class="meta-cell-label">Context</div><div class="meta-cell-value">University Project<br/>2023</div></div>
+      <div class="meta-cell"><div class="meta-cell-label">Role</div><div class="meta-cell-value">Brand Designer</div></div>
+      <div class="meta-cell"><div class="meta-cell-label">Deliverables</div><div class="meta-cell-value">Identity · Motion<br/>Print · Merch</div></div>
+      <div class="meta-cell"><div class="meta-cell-label">Focus</div><div class="meta-cell-value">Activism<br/>in Gaming</div></div>
+    </div>
+
+    <div class="overlay-section">
+      <div class="overlay-section-label">Overview</div>
+      <p>In 2023, we're bringing play to the next level. <strong>PLAYNEXT</strong> is an all-inclusive game developer conference celebrating indie developers from around the world — specifically games that weave <strong>current events and socio-political themes</strong> into interactive experiences.</p>
+      <p>PLAYNEXT champions games as a medium for activism: a platform where Inclusivity, Diversity, Innovation, the Metaverse, and Freedom aren't just buzzwords — they're the brief.</p>
+      <div class="pn-values-strip">
+        <div class="pn-value"><span class="pn-value-word">Inclusivity</span><span class="pn-value-desc">Games for everyone,<br/>designed without exception</span></div>
+        <div class="pn-value"><span class="pn-value-word">Diversity</span><span class="pn-value-desc">Voices from every<br/>corner of the world</span></div>
+        <div class="pn-value"><span class="pn-value-word">Innovation</span><span class="pn-value-desc">Pushing the medium<br/>past its limits</span></div>
+        <div class="pn-value"><span class="pn-value-word">Metaverse</span><span class="pn-value-desc">Play without<br/>physical borders</span></div>
+        <div class="pn-value"><span class="pn-value-word">Freedom</span><span class="pn-value-desc">Uncensored stories<br/>that need to be told</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 01 — Logo Animation, full-bleed -->
+  <div class="cb-fullbleed">
+    <a class="cb-img-wrap zoomable" href="#" onclick="openLightbox(event,this)">
+      <img src="/assets/playnext_logo.gif" alt="playnext logo gif"/>
+    </a>
+  </div>
+
+  <div class="overlay-body">
+
+    <!-- 02 — Type Test -->
+    <div class="overlay-section">
+      <div class="overlay-section-label">Type Test</div>
+      <div class="pn-type-row">
+        <a class="cb-img-wrap zoomable" href="#" onclick="openLightbox(event,this)">
+          <img src="/assets/playnext_typetest.png" alt="playnext typetest"/>
+        </a>
+        <a class="cb-img-wrap zoomable" href="#" onclick="openLightbox(event,this)">
+          <img src="/assets/playnext_color.png" alt="playnext typetest"/>
+        </a>
+        <a class="cb-img-wrap zoomable" href="#" onclick="openLightbox(event,this)">
+          <img src="/assets/playnext_color_2.png" alt="playnext typetest"/>
+        </a>
+      </div>
+    </div>
+
+    <!-- 03 — Speaker Slides -->
+    <div class="overlay-section">
+      <div class="overlay-section-label">Speaker Slides</div>
+      <div class="pn-speaker-row">
+        <div class="pn-speaker-cell">
+          <a class="cb-img-wrap zoomable" href="#" onclick="openLightbox(event,this)">
+            <img src="/assets/playnext_speaker1.gif" alt="playnext speaker"/>
+          </a>
+          <div class="pn-speaker-label">Speaker 01</div>
+        </div>
+        <div class="pn-speaker-cell">
+          <a class="cb-img-wrap zoomable" href="#" onclick="openLightbox(event,this)">
+            <img src="/assets/playnext_speaker2.gif" alt="playnext speaker"/>
+          </a>
+          <div class="pn-speaker-label">Speaker 02</div>
+        </div>
+        <div class="pn-speaker-cell">
+          <a class="cb-img-wrap zoomable" href="#" onclick="openLightbox(event,this)">
+            <img src="/assets/playnext_speaker3.gif" alt="playnext speaker"/>
+          </a>
+          <div class="pn-speaker-label">Speaker 03</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 04 — Dynamic Posters -->
+    <div class="overlay-section">
+      <div class="overlay-section-label">Dynamic Posters</div>
+      <div class="pn-poster-grid">
+        <a class="cb-img-wrap zoomable" href="#" onclick="openLightbox(event,this)">
+          <img src="/assets/playnext_dyna.gif" alt="playnext dyna1"/>
+        </a>
+        <a class="cb-img-wrap zoomable" href="#" onclick="openLightbox(event,this)">
+          <img src="/assets/playnext_dyna2.gif" alt="playnext dyna2"/>
+        </a>
+        <a class="cb-img-wrap zoomable" href="#" onclick="openLightbox(event,this)">
+          <img src="/assets/playnext_dyna3.gif" alt="playnext dyna3"/>
+        </a>
+      </div>
+    </div>
+
+    <!-- 05 — Social Media -->
+    <div class="overlay-section">
+      <div class="overlay-section-label">Social Media</div>
+      <div class="pn-social-grid">
+        <a class="cb-img-wrap zoomable" href="#" onclick="openLightbox(event,this)">
+          <img src="/assets/playnext_social1.jpg" alt="playnext social1"/>
+        </a>
+        <a class="cb-img-wrap zoomable" href="#" onclick="openLightbox(event,this)">
+          <img src="/assets/playnext_social2.gif" alt="playnext social2"/>
+        </a>
+        <a class="cb-img-wrap zoomable" href="#" onclick="openLightbox(event,this)">
+          <img src="/assets/playnext_social3.gif" alt="playnext social3"/>
+        </a>
+        <a class="cb-img-wrap zoomable" href="#" onclick="openLightbox(event,this)">
+          <img src="/assets/playnext_social4.gif" alt="playnext social4"/>
+        </a>
+      </div>
+    </div>
+
+    <!-- 06 — Merch -->
+    <div class="overlay-section">
+      <div class="overlay-section-label">Merch</div>
+      <div class="pn-merch-grid">
+        <a class="cb-img-wrap zoomable" href="#" onclick="openLightbox(event,this)">
+          <img src="/assets/playnext_merch1.jpg" alt="playnext merch"/>
+        </a>
+        <a class="cb-img-wrap zoomable" href="#" onclick="openLightbox(event,this)">
+          <img src="/assets/playnext_merch2.jpg" alt="playnext merch"/>
+        </a>
+        <a class="cb-img-wrap zoomable" href="#" onclick="openLightbox(event,this)">
+          <img src="/assets/playnext_merch3.png" alt="playnext merch"/>
+        </a>
+        <a class="cb-img-wrap zoomable" href="#" onclick="openLightbox(event,this)">
+          <img src="/assets/playnext_merch4.jpg" alt="playnext merch"/>
+        </a>
+      </div>
+    </div>
+
+    <div class="overlay-section">
+      <div class="overlay-section-label">Reflection</div>
+      <p>My professor challenged me to design a brand that held real political weight without feeling heavy-handed. The visual language had to feel energised and accessible — something that says "this is serious, and it's going to be fun."</p>
+      <div class="reflect-grid">
+        <div class="reflect-cell good"><div class="reflect-cell-label">✓ What worked</div><p>Anchoring the identity in the five PLAY-in values gave every design decision a clear filter. The neon-green accent and bold type system made the brand instantly readable at poster scale and thumbnail scale alike.</p></div>
+        <div class="reflect-cell next"><div class="reflect-cell-label">→ Next time</div><p>I'd develop the motion system earlier — the speaker slides and logo animation shaped a lot of the static work, and building those first would have tightened the overall coherence.</p></div>
+      </div>
+    </div>
+
   </div>
 </div>
 
