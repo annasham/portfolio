@@ -64,6 +64,45 @@
     .open-hint   { font-size: 10px; color: var(--dim); opacity: 0; transition: opacity .2s, transform .2s; transform: translateX(-6px); letter-spacing: .1em; white-space: nowrap; }
     .proj-arrow  { color: var(--dim); font-size: 18px; transition: color .18s, transform .18s; }
 
+    /* ── Hover preview image ── */
+    .preview-float {
+      position: fixed;
+      width: 280px;
+      height: 185px;
+      pointer-events: none;
+      z-index: 9998;
+      opacity: 0;
+      transform: scale(0.88) translateY(12px) rotate(-1deg);
+      transition: opacity .3s cubic-bezier(0.25,0.46,0.45,0.94),
+                  transform .35s cubic-bezier(0.25,0.46,0.45,0.94);
+      border: 1px solid rgba(255,255,255,0.13);
+      overflow: hidden;
+      will-change: transform, opacity;
+      top: 0; left: 0;
+    }
+    .preview-float.visible {
+      opacity: 1;
+      transform: scale(1) translateY(0) rotate(0deg);
+    }
+    .preview-float img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: brightness(0.88);
+    }
+    .preview-float-label {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 10px 14px;
+      background: linear-gradient(to top, rgba(14,14,14,0.88), transparent);
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: rgba(240,240,238,0.55);
+    }
+
     #about { border-top: 1px solid var(--line); }
     .about-grid { display: grid; grid-template-columns: 1fr 1fr; }
     .about-left  { padding: 40px 24px; border-right: 1px solid var(--line); }
@@ -167,7 +206,6 @@
     .lightbox-nav.disabled { opacity: 0.2; pointer-events: none; }
     .lightbox-counter { position: absolute; bottom: -30px; left: 50%; transform: translateX(-50%); font-size: 10px; color: var(--dim); letter-spacing: .14em; white-space: nowrap; }
 
-    /* ── Neuron Design System highlight section ── */
     .neuron-ds-section { background: linear-gradient(160deg, rgba(100,39,220,0.07) 0%, rgba(100,39,220,0.03) 60%, transparent 100%); border: 1px solid rgba(100,39,220,0.2); padding: 40px; margin-bottom: 72px; position: relative; }
     .neuron-ds-section::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 100%; background: linear-gradient(to bottom, #6427DC, rgba(100,39,220,0.2)); }
     .neuron-ds-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 32px; gap: 32px; }
@@ -185,7 +223,6 @@
     .ds-label-inline { border: none; margin: 0; padding: 0; }
     .overlay-section.neuron-ds-section { margin-bottom: 0; }
 
-    /* ── Neuron-specific layouts ── */
     .neuron-split { display: grid; grid-template-columns: 3fr 2fr; gap: 2px; margin-top: 2px; align-items: start; }
     .neuron-split-main, .neuron-split-side { overflow: hidden; }
     .neuron-split-main a, .neuron-split-side a { display: block; cursor: none; overflow: hidden; position: relative; }
@@ -198,7 +235,6 @@
     .neuron-gif-label { font-size: 9px; letter-spacing: .2em; text-transform: uppercase; color: var(--dim); display: block; }
     .neuron-gif-caption p { font-family: var(--sans); font-size: 13px; font-weight: 300; color: var(--mid); line-height: 1.75; margin: 0; }
 
-    /* ── Casablanca overlay ── */
     .overlay-hero--dark .overlay-hero-bg img { object-position: center center; }
     .cb-fullbleed { width: 100%; }
     .cb-fullbleed a { display: block; cursor: none; }
@@ -211,13 +247,6 @@
     .cb-mockup-pair  { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; margin-bottom: 3px; }
     .cb-mockup-wide  { margin-bottom: 3px; }
     .cb-mockup-three { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 3px; }
-    .cb-placeholder { background: #111; border: 1px dashed rgba(255,255,255,0.08); min-height: 260px; display: flex; align-items: center; justify-content: center; text-align: center; transition: border-color .2s, background .2s; cursor: none; }
-    .cb-placeholder--tall { min-height: 480px; }
-    .cb-placeholder--wide { min-height: 320px; }
-    .cb-placeholder--sm   { min-height: 200px; }
-    .cb-placeholder:hover { border-color: rgba(255,255,255,0.16); background: #161616; }
-    .cb-ph-label { font-family: var(--mono); font-size: 10px; color: var(--dim); letter-spacing: .08em; line-height: 1.9; padding: 20px; }
-    .cb-ph-label em { display: block; font-style: normal; font-size: 9px; color: var(--dim); margin-top: 4px; }
     .cb-img-wrap { display: block; cursor: none; overflow: hidden; position: relative; }
     .cb-img-wrap img { width: 100%; height: auto; display: block; transition: transform .45s cubic-bezier(0.25,0.46,0.45,0.94), filter .3s; }
     .cb-img-wrap:hover img { transform: scale(1.02); filter: brightness(1.06); }
@@ -226,20 +255,17 @@
     .overlay::-webkit-scrollbar-track { background: var(--bg); }
     .overlay::-webkit-scrollbar-thumb { background: var(--dim); border-radius: 2px; }
 
-    /* ── PLAYNEXT overlay ── */
     .pn-accent { color: #c8f135; }
     .pn-fullbleed { width: 100%; margin-bottom: 3px; }
     .pn-fullbleed a, .pn-fullbleed-plain { display: block; cursor: none; overflow: hidden; }
     .pn-fullbleed img, .pn-fullbleed-plain img { width: 100%; height: auto; display: block; transition: filter .4s, transform .45s cubic-bezier(0.25,0.46,0.45,0.94); }
     .pn-fullbleed a:hover img { filter: brightness(1.07); transform: scale(1.02); }
 
-    /* type test — 3 horizontal photos side by side */
     .pn-type-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 3px; margin-bottom: 3px; }
     .pn-type-row a { display: block; cursor: none; overflow: hidden; }
     .pn-type-row img { width: 100%; height: auto; display: block; transition: transform .45s cubic-bezier(0.25,0.46,0.45,0.94), filter .3s; }
     .pn-type-row a:hover img { transform: scale(1.03); filter: brightness(1.07); }
 
-    /* speaker slides — 3 horizontal GIF/videos */
     .pn-speaker-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 3px; margin-bottom: 3px; }
     .pn-speaker-cell { position: relative; overflow: hidden; cursor: none; }
     .pn-speaker-cell a { display: block; cursor: none; }
@@ -247,37 +273,27 @@
     .pn-speaker-cell a:hover img { transform: scale(1.02); filter: brightness(1.08); }
     .pn-speaker-label { position: absolute; bottom: 0; left: 0; right: 0; padding: 12px 16px; background: linear-gradient(to top, rgba(0,0,0,0.75), transparent); font-size: 9px; letter-spacing: .18em; text-transform: uppercase; color: rgba(255,255,255,0.7); pointer-events: none; }
 
-    /* dynamic posters — vertical, 3-col grid */
     .pn-poster-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 3px; align-items: start; margin-bottom: 3px; }
     .pn-poster-grid a { display: block; cursor: none; overflow: hidden; }
     .pn-poster-grid img { width: 100%; height: auto; display: block; transition: transform .5s cubic-bezier(0.25,0.46,0.45,0.94), filter .3s; }
     .pn-poster-grid a:hover img { transform: scale(1.04); filter: brightness(1.06); }
 
-    /* social media — 2×2 square grid */
     .pn-social-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; margin-bottom: 3px; }
     .pn-social-grid a { display: block; cursor: none; overflow: hidden; aspect-ratio: 1 / 1; }
     .pn-social-grid img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .45s cubic-bezier(0.25,0.46,0.45,0.94), filter .3s; }
     .pn-social-grid a:hover img { transform: scale(1.04); filter: brightness(1.07); }
 
-    /* merch — 2×2 horizontal grid (landscape cells) */
     .pn-merch-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; }
     .pn-merch-grid a { display: block; cursor: none; overflow: hidden; aspect-ratio: 4 / 3; }
     .pn-merch-grid img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .45s cubic-bezier(0.25,0.46,0.45,0.94), filter .3s; }
     .pn-merch-grid a:hover img { transform: scale(1.03); filter: brightness(1.06); }
 
-    /* play-in values strip */
     .pn-values-strip { display: flex; flex-wrap: wrap; gap: 0; border: 1px solid var(--line); margin-top: 28px; }
     .pn-value { flex: 1; min-width: 120px; padding: 18px 22px; border-right: 1px solid var(--line); transition: background .18s; }
     .pn-value:last-child { border-right: none; }
     .pn-value:hover { background: rgba(200,241,53,0.04); }
     .pn-value-word { font-size: 11px; font-weight: 500; color: #c8f135; letter-spacing: .06em; display: block; margin-bottom: 4px; }
     .pn-value-desc { font-size: 10px; color: var(--dim); font-weight: 300; line-height: 1.6; }
-
-    /* placeholder tiles reused */
-    .pn-ph { background: #111; border: 1px dashed rgba(255,255,255,0.08); min-height: 220px; display: flex; align-items: center; justify-content: center; text-align: center; transition: border-color .2s, background .2s; cursor: none; }
-    .pn-ph:hover { border-color: rgba(255,255,255,0.16); background: #161616; }
-    .pn-ph-label { font-family: var(--mono); font-size: 10px; color: var(--dim); letter-spacing: .08em; line-height: 1.9; padding: 20px; }
-    .pn-ph-label em { display: block; font-style: normal; font-size: 9px; color: var(--dim); margin-top: 4px; }
 
     @media (max-width: 768px) {
       nav { grid-template-columns: 1fr 1fr; gap: 12px; }
@@ -304,6 +320,7 @@
       .pn-values-strip { flex-direction: column; }
       .pn-value { border-right: none; border-bottom: 1px solid var(--line); }
       .pn-value:last-child { border-bottom: none; }
+      .preview-float { display: none; }
     }
   </style>
 </head>
@@ -311,6 +328,12 @@
 
 <div class="cursor" id="cursor"></div>
 <div class="cursor-label" id="cursorLabel">View</div>
+
+<!-- Floating hover preview -->
+<div class="preview-float" id="previewFloat">
+  <img id="previewFloatImg" src="" alt=""/>
+  <div class="preview-float-label" id="previewFloatLabel"></div>
+</div>
 
 <div class="lightbox" id="lightbox">
   <div class="lightbox-inner">
@@ -373,7 +396,10 @@
 <main>
   <section id="gallery">
     <div class="gallery-label">Gallery</div>
-    <div class="project-row reveal" onclick="openOverlay('riot')">
+    <div class="project-row reveal"
+         data-preview-src="/assets/val_2.jpg"
+         data-preview-label="Riot Games · Voice Chat"
+         onclick="openOverlay('riot')">
       <div class="proj-index">#001</div>
       <div>
         <div class="proj-title">Cross-Platform Voice Chat System</div>
@@ -382,7 +408,10 @@
       <div class="open-hint">View project</div>
       <div class="proj-arrow">↗</div>
     </div>
-    <div class="project-row reveal" style="transition-delay:.08s" onclick="openOverlay('neuron')">
+    <div class="project-row reveal" style="transition-delay:.08s"
+         data-preview-src="/assets/neuron1.jpg"
+         data-preview-label="Neuron Digital · Rebrand"
+         onclick="openOverlay('neuron')">
       <div class="proj-index">#002</div>
       <div>
         <div class="proj-title">Neuron Digital Rebrand &amp; Design System</div>
@@ -391,7 +420,10 @@
       <div class="open-hint">View project</div>
       <div class="proj-arrow">↗</div>
     </div>
-    <div class="project-row reveal" style="transition-delay:.16s" onclick="openOverlay('casablanca')">
+    <div class="project-row reveal" style="transition-delay:.16s"
+         data-preview-src="/assets/casablanca_full.png"
+         data-preview-label="Casablanca Records · Brand Identity"
+         onclick="openOverlay('casablanca')">
       <div class="proj-index">#003</div>
       <div>
         <div class="proj-title">Casablanca Records — Brand Identity</div>
@@ -400,7 +432,10 @@
       <div class="open-hint">View project</div>
       <div class="proj-arrow">↗</div>
     </div>
-    <div class="project-row reveal" style="transition-delay:.24s" onclick="openOverlay('playnext')">
+    <div class="project-row reveal" style="transition-delay:.24s"
+         data-preview-src="/assets/playnext_logo_solid.png"
+         data-preview-label="PLAYNEXT · Game Developer Conference"
+         onclick="openOverlay('playnext')">
       <div class="proj-index">#004</div>
       <div>
         <div class="proj-title">PLAYNEXT — Game Developer Conference</div>
@@ -667,7 +702,6 @@
       </div>
     </div>
   </div>
-
   <div class="overlay-body">
     <div class="overlay-meta-strip">
       <div class="meta-cell"><div class="meta-cell-label">Context</div><div class="meta-cell-value">University Project<br/>Junior Year</div></div>
@@ -681,14 +715,11 @@
       <p>The brief: give this brand a <strong>bright, electrifying personality</strong> that captures disco as a cultural force, not just a sound.</p>
     </div>
   </div>
-
-  <!-- Logo identity — full-bleed -->
   <div class="cb-fullbleed">
     <a class="zoomable" href="#" onclick="openLightbox(event,this)">
       <img src="/assets/LOGO_IDENT_FINAL.gif" alt="Casablanca Records logo identity"/>
     </a>
   </div>
-
   <div class="overlay-body">
     <div class="overlay-section">
       <div class="overlay-section-label">Texture &amp; Atmosphere</div>
@@ -697,44 +728,22 @@
         <div class="casablanca-gif-overlay"><span>Electrifying · Visceral · Alive</span></div>
       </div>
     </div>
-
     <div class="overlay-section">
       <div class="overlay-section-label">Applications</div>
-
-      <!-- Poster trio — first is real, others placeholder -->
       <div class="cb-mockup-three" style="margin-bottom:3px;">
-        <a class="cb-img-wrap zoomable" href="#" onclick="openLightbox(event,this)">
-          <img src="/assets/casablanca1.gif" alt="Casablanca poster"/>
-        </a>
-        <a class="cb-img-wrap zoomable" href="#" onclick="openLightbox(event,this)">
-          <img src="/assets/casablanca2.gif" alt="Casablanca poster"/>
-        </a>
-        <a class="cb-img-wrap zoomable" href="#" onclick="openLightbox(event,this)">
-          <img src="/assets/casablanca3.gif" alt="Casablanca poster"/>
-        </a>
+        <a class="cb-img-wrap zoomable" href="#" onclick="openLightbox(event,this)"><img src="/assets/casablanca1.gif" alt="Casablanca poster"/></a>
+        <a class="cb-img-wrap zoomable" href="#" onclick="openLightbox(event,this)"><img src="/assets/casablanca2.gif" alt="Casablanca poster"/></a>
+        <a class="cb-img-wrap zoomable" href="#" onclick="openLightbox(event,this)"><img src="/assets/casablanca3.gif" alt="Casablanca poster"/></a>
       </div>
-
-      <!-- Wide mockup -->
       <div class="cb-mockup-wide">
-        <a class="cb-img-wrap zoomable" href="#" onclick="openLightbox(event,this)">
-          <img src="/assets/casablanca_merch.png" alt="Casablanca merch"/>
-        </a>
+        <a class="cb-img-wrap zoomable" href="#" onclick="openLightbox(event,this)"><img src="/assets/casablanca_merch.png" alt="Casablanca merch"/></a>
       </div>
-
-      <!-- Detail row -->
       <div class="cb-mockup-three">
-        <a class="cb-img-wrap zoomable" href="#" onclick="openLightbox(event,this)">
-          <img src="/assets/casablanca_web.gif" alt="Casablanca web"/>
-        </a>
-        <a class="cb-img-wrap zoomable" href="#" onclick="openLightbox(event,this)">
-          <img src="/assets/casablanca_yt.gif" alt="Casablanca yt"/>
-        </a>
-        <a class="cb-img-wrap zoomable" href="#" onclick="openLightbox(event,this)">
-          <img src="/assets/casablanca_colors.png" alt="Casablanca colors"/>
-        </a>
+        <a class="cb-img-wrap zoomable" href="#" onclick="openLightbox(event,this)"><img src="/assets/casablanca_web.gif" alt="Casablanca web"/></a>
+        <a class="cb-img-wrap zoomable" href="#" onclick="openLightbox(event,this)"><img src="/assets/casablanca_yt.gif" alt="Casablanca yt"/></a>
+        <a class="cb-img-wrap zoomable" href="#" onclick="openLightbox(event,this)"><img src="/assets/casablanca_colors.png" alt="Casablanca colors"/></a>
       </div>
     </div>
-
     <div class="overlay-section">
       <div class="overlay-section-label">Concept</div>
       <div class="process-list">
@@ -743,7 +752,6 @@
         <div class="process-step"><div class="ps-num">03</div><div><div class="ps-title">Neon as Identity</div><div class="ps-body">Warm, glowing, slightly imperfect — the kind of sign burning at 2am that pulls you in from across the street. Neon became the core visual metaphor for everything the label stood for.</div></div></div>
       </div>
     </div>
-
     <div class="overlay-section">
       <div class="overlay-section-label">Reflection</div>
       <p>Working on a real cultural artifact forced me to think about what a brand <em>feels like</em>, not just what it looks like. The 70s constraint pushed me toward a bolder, more atmospheric visual language than I'd normally reach for.</p>
@@ -764,8 +772,6 @@
     </div>
     <button class="close-btn" onclick="closeOverlay('playnext')">Close ✕</button>
   </div>
-
-  <!-- Hero -->
   <div class="overlay-hero overlay-hero--dark">
     <div class="overlay-hero-bg">
       <div class="overlay-hero-bg"><img src="/assets/playnext_logo_solid.png" alt="playnext logo sign"/></div>
@@ -784,7 +790,6 @@
       </div>
     </div>
   </div>
-
   <div class="overlay-body">
     <div class="overlay-meta-strip">
       <div class="meta-cell"><div class="meta-cell-label">Context</div><div class="meta-cell-value">University Project<br/>2023</div></div>
@@ -792,7 +797,6 @@
       <div class="meta-cell"><div class="meta-cell-label">Deliverables</div><div class="meta-cell-value">Identity · Motion<br/>Print · Merch</div></div>
       <div class="meta-cell"><div class="meta-cell-label">Focus</div><div class="meta-cell-value">Activism<br/>in Gaming</div></div>
     </div>
-
     <div class="overlay-section">
       <div class="overlay-section-label">Overview</div>
       <p>In 2023, we're bringing play to the next level. <strong>PLAYNEXT</strong> is an all-inclusive game developer conference celebrating indie developers from around the world — specifically games that weave <strong>current events and socio-political themes</strong> into interactive experiences.</p>
@@ -806,111 +810,54 @@
       </div>
     </div>
   </div>
-
-  <!-- 01 — Logo Animation, full-bleed -->
   <div class="cb-fullbleed">
     <a class="cb-img-wrap zoomable" href="#" onclick="openLightbox(event,this)">
       <img src="/assets/playnext_logo.gif" alt="playnext logo gif"/>
     </a>
   </div>
-
   <div class="overlay-body">
-
-    <!-- 02 — Type Test -->
     <div class="overlay-section">
       <div class="overlay-section-label">Type Test</div>
       <div class="pn-type-row">
-        <a class="cb-img-wrap zoomable" href="#" onclick="openLightbox(event,this)">
-          <img src="/assets/playnext_typetest.png" alt="playnext typetest"/>
-        </a>
-        <a class="cb-img-wrap zoomable" href="#" onclick="openLightbox(event,this)">
-          <img src="/assets/playnext_color.png" alt="playnext typetest"/>
-        </a>
-        <a class="cb-img-wrap zoomable" href="#" onclick="openLightbox(event,this)">
-          <img src="/assets/playnext_color_2.png" alt="playnext typetest"/>
-        </a>
+        <a class="cb-img-wrap zoomable" href="#" onclick="openLightbox(event,this)"><img src="/assets/playnext_typetest.png" alt="playnext typetest"/></a>
+        <a class="cb-img-wrap zoomable" href="#" onclick="openLightbox(event,this)"><img src="/assets/playnext_color.png" alt="playnext typetest"/></a>
+        <a class="cb-img-wrap zoomable" href="#" onclick="openLightbox(event,this)"><img src="/assets/playnext_color_2.png" alt="playnext typetest"/></a>
       </div>
     </div>
-
-    <!-- 03 — Speaker Slides -->
     <div class="overlay-section">
       <div class="overlay-section-label">Speaker Slides</div>
       <div class="pn-speaker-row">
-        <div class="pn-speaker-cell">
-          <a class="cb-img-wrap zoomable" href="#" onclick="openLightbox(event,this)">
-            <img src="/assets/playnext_speaker1.gif" alt="playnext speaker"/>
-          </a>
-          <div class="pn-speaker-label">Speaker 01</div>
-        </div>
-        <div class="pn-speaker-cell">
-          <a class="cb-img-wrap zoomable" href="#" onclick="openLightbox(event,this)">
-            <img src="/assets/playnext_speaker2.gif" alt="playnext speaker"/>
-          </a>
-          <div class="pn-speaker-label">Speaker 02</div>
-        </div>
-        <div class="pn-speaker-cell">
-          <a class="cb-img-wrap zoomable" href="#" onclick="openLightbox(event,this)">
-            <img src="/assets/playnext_speaker3.gif" alt="playnext speaker"/>
-          </a>
-          <div class="pn-speaker-label">Speaker 03</div>
-        </div>
+        <div class="pn-speaker-cell"><a class="cb-img-wrap zoomable" href="#" onclick="openLightbox(event,this)"><img src="/assets/playnext_speaker1.gif" alt="playnext speaker"/></a><div class="pn-speaker-label">Speaker 01</div></div>
+        <div class="pn-speaker-cell"><a class="cb-img-wrap zoomable" href="#" onclick="openLightbox(event,this)"><img src="/assets/playnext_speaker2.gif" alt="playnext speaker"/></a><div class="pn-speaker-label">Speaker 02</div></div>
+        <div class="pn-speaker-cell"><a class="cb-img-wrap zoomable" href="#" onclick="openLightbox(event,this)"><img src="/assets/playnext_speaker3.gif" alt="playnext speaker"/></a><div class="pn-speaker-label">Speaker 03</div></div>
       </div>
     </div>
-
-    <!-- 04 — Dynamic Posters -->
     <div class="overlay-section">
       <div class="overlay-section-label">Dynamic Posters</div>
       <div class="pn-poster-grid">
-        <a class="cb-img-wrap zoomable" href="#" onclick="openLightbox(event,this)">
-          <img src="/assets/playnext_dyna.gif" alt="playnext dyna1"/>
-        </a>
-        <a class="cb-img-wrap zoomable" href="#" onclick="openLightbox(event,this)">
-          <img src="/assets/playnext_dyna2.gif" alt="playnext dyna2"/>
-        </a>
-        <a class="cb-img-wrap zoomable" href="#" onclick="openLightbox(event,this)">
-          <img src="/assets/playnext_dyna3.gif" alt="playnext dyna3"/>
-        </a>
+        <a class="cb-img-wrap zoomable" href="#" onclick="openLightbox(event,this)"><img src="/assets/playnext_dyna.gif" alt="playnext dyna1"/></a>
+        <a class="cb-img-wrap zoomable" href="#" onclick="openLightbox(event,this)"><img src="/assets/playnext_dyna2.gif" alt="playnext dyna2"/></a>
+        <a class="cb-img-wrap zoomable" href="#" onclick="openLightbox(event,this)"><img src="/assets/playnext_dyna3.gif" alt="playnext dyna3"/></a>
       </div>
     </div>
-
-    <!-- 05 — Social Media -->
     <div class="overlay-section">
       <div class="overlay-section-label">Social Media</div>
       <div class="pn-social-grid">
-        <a class="cb-img-wrap zoomable" href="#" onclick="openLightbox(event,this)">
-          <img src="/assets/playnext_social1.jpg" alt="playnext social1"/>
-        </a>
-        <a class="cb-img-wrap zoomable" href="#" onclick="openLightbox(event,this)">
-          <img src="/assets/playnext_social2.gif" alt="playnext social2"/>
-        </a>
-        <a class="cb-img-wrap zoomable" href="#" onclick="openLightbox(event,this)">
-          <img src="/assets/playnext_social3.gif" alt="playnext social3"/>
-        </a>
-        <a class="cb-img-wrap zoomable" href="#" onclick="openLightbox(event,this)">
-          <img src="/assets/playnext_social4.gif" alt="playnext social4"/>
-        </a>
+        <a class="cb-img-wrap zoomable" href="#" onclick="openLightbox(event,this)"><img src="/assets/playnext_social1.jpg" alt="playnext social1"/></a>
+        <a class="cb-img-wrap zoomable" href="#" onclick="openLightbox(event,this)"><img src="/assets/playnext_social2.gif" alt="playnext social2"/></a>
+        <a class="cb-img-wrap zoomable" href="#" onclick="openLightbox(event,this)"><img src="/assets/playnext_social3.gif" alt="playnext social3"/></a>
+        <a class="cb-img-wrap zoomable" href="#" onclick="openLightbox(event,this)"><img src="/assets/playnext_social4.gif" alt="playnext social4"/></a>
       </div>
     </div>
-
-    <!-- 06 — Merch -->
     <div class="overlay-section">
       <div class="overlay-section-label">Merch</div>
       <div class="pn-merch-grid">
-        <a class="cb-img-wrap zoomable" href="#" onclick="openLightbox(event,this)">
-          <img src="/assets/playnext_merch1.jpg" alt="playnext merch"/>
-        </a>
-        <a class="cb-img-wrap zoomable" href="#" onclick="openLightbox(event,this)">
-          <img src="/assets/playnext_merch2.jpg" alt="playnext merch"/>
-        </a>
-        <a class="cb-img-wrap zoomable" href="#" onclick="openLightbox(event,this)">
-          <img src="/assets/playnext_merch3.png" alt="playnext merch"/>
-        </a>
-        <a class="cb-img-wrap zoomable" href="#" onclick="openLightbox(event,this)">
-          <img src="/assets/playnext_merch4.jpg" alt="playnext merch"/>
-        </a>
+        <a class="cb-img-wrap zoomable" href="#" onclick="openLightbox(event,this)"><img src="/assets/playnext_merch1.jpg" alt="playnext merch"/></a>
+        <a class="cb-img-wrap zoomable" href="#" onclick="openLightbox(event,this)"><img src="/assets/playnext_merch2.jpg" alt="playnext merch"/></a>
+        <a class="cb-img-wrap zoomable" href="#" onclick="openLightbox(event,this)"><img src="/assets/playnext_merch3.png" alt="playnext merch"/></a>
+        <a class="cb-img-wrap zoomable" href="#" onclick="openLightbox(event,this)"><img src="/assets/playnext_merch4.jpg" alt="playnext merch"/></a>
       </div>
     </div>
-
     <div class="overlay-section">
       <div class="overlay-section-label">Reflection</div>
       <p>My professor challenged me to design a brand that held real political weight without feeling heavy-handed. The visual language had to feel energised and accessible — something that says "this is serious, and it's going to be fun."</p>
@@ -919,11 +866,12 @@
         <div class="reflect-cell next"><div class="reflect-cell-label">→ Next time</div><p>I'd develop the motion system earlier — the speaker slides and logo animation shaped a lot of the static work, and building those first would have tightened the overall coherence.</p></div>
       </div>
     </div>
-
   </div>
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+<script>
+  /* ── Cursor ── */
   const cursor      = document.getElementById('cursor');
   const cursorLabel = document.getElementById('cursorLabel');
 
@@ -957,6 +905,7 @@
   }
   bindZoomables();
 
+  /* ── Hero parallax ── */
   const heroPhotoWrap = document.getElementById('heroPhotoWrap');
   document.addEventListener('mousemove', e => {
     const dx = (e.clientX - window.innerWidth  / 2) / (window.innerWidth  / 2);
@@ -964,11 +913,13 @@
     if (heroPhotoWrap) heroPhotoWrap.style.transform = `translate(${dx * 9}px, ${dy * 6}px)`;
   });
 
+  /* ── Scroll reveal ── */
   const io = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
   }, { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
+  /* ── Overlay open / close ── */
   function openOverlay(id) {
     const el = document.getElementById('overlay-' + id);
     el.classList.add('active');
@@ -980,6 +931,77 @@
     document.body.style.overflow = '';
   }
 
+  /* ── Gallery hover image preview ── */
+  const previewFloat     = document.getElementById('previewFloat');
+  const previewFloatImg  = document.getElementById('previewFloatImg');
+  const previewFloatLabel= document.getElementById('previewFloatLabel');
+
+  let mouseX = 0, mouseY = 0;
+  let animX  = 0, animY  = 0;
+  let previewActive = false;
+  let previewRaf    = null;
+
+  function lerp(a, b, t) { return a + (b - a) * t; }
+
+  function previewTick() {
+    if (!previewActive) return;
+    animX = lerp(animX, mouseX, 0.1);
+    animY = lerp(animY, mouseY, 0.1);
+
+    /* offset: right of cursor, slightly above */
+    const ox = 30;
+    const oy = -110;
+
+    /* keep within viewport */
+    const pw = 280, ph = 185;
+    let fx = animX + ox;
+    let fy = animY + oy;
+    if (fx + pw > window.innerWidth  - 12) fx = animX - pw - 16;
+    if (fy < 12)                            fy = animY + 20;
+    if (fy + ph > window.innerHeight - 12)  fy = window.innerHeight - ph - 12;
+
+    previewFloat.style.left = fx + 'px';
+    previewFloat.style.top  = fy + 'px';
+    previewRaf = requestAnimationFrame(previewTick);
+  }
+
+  /* track mouse globally for the lerp loop */
+  document.addEventListener('mousemove', e => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+  });
+
+  document.querySelectorAll('.project-row[data-preview-src]').forEach(row => {
+    const src   = row.dataset.previewSrc;
+    const label = row.dataset.previewLabel;
+
+    row.addEventListener('mouseenter', () => {
+      /* hide preview during overlay */
+      if (document.querySelector('.overlay.active')) return;
+
+      previewFloatImg.src          = src;
+      previewFloatLabel.textContent= label;
+
+      /* snap starting position so lerp begins near cursor */
+      animX = mouseX;
+      animY = mouseY;
+
+      previewActive = true;
+      cancelAnimationFrame(previewRaf);
+      previewRaf = requestAnimationFrame(previewTick);
+
+      /* tiny delay so transform kicks in after display */
+      requestAnimationFrame(() => previewFloat.classList.add('visible'));
+    });
+
+    row.addEventListener('mouseleave', () => {
+      previewFloat.classList.remove('visible');
+      previewActive = false;
+      cancelAnimationFrame(previewRaf);
+    });
+  });
+
+  /* ── Lightbox ── */
   const lightbox        = document.getElementById('lightbox');
   const lightboxImg     = document.getElementById('lightboxImg');
   const lightboxCounter = document.getElementById('lightboxCounter');
