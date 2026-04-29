@@ -14,16 +14,12 @@
     }
     html { scroll-behavior: smooth; }
     body { font-family: var(--mono); background: var(--bg); color: var(--white); font-size: 12px; line-height: 1.6; -webkit-font-smoothing: antialiased; cursor: none; overflow-x: hidden; }
-
     .cursor { position: fixed; width: 8px; height: 8px; background: var(--white); border-radius: 50%; pointer-events: none; z-index: 99999; transform: translate(-50%,-50%); transition: width .2s, height .2s; mix-blend-mode: difference; }
     .cursor.hover { width: 32px; height: 32px; }
     .cursor.zoom  { width: 56px; height: 56px; }
     .cursor-label { position: fixed; pointer-events: none; z-index: 99998; font-family: var(--mono); font-size: 9px; letter-spacing: .12em; color: var(--bg); transform: translate(-50%,-50%); opacity: 0; transition: opacity .2s; text-transform: uppercase; white-space: nowrap; }
-
     .reveal { opacity: 0; transform: translateY(18px); transition: opacity .65s ease, transform .65s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
-
-    /* Nav */
     nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; display: flex; justify-content: space-between; align-items: center; padding: 16px 28px; border-bottom: 1px solid var(--line); background: rgba(14,14,14,0.9); backdrop-filter: blur(14px); }
     .nav-left { font-weight: 500; font-size: 12px; }
     .nav-right { display: flex; gap: 28px; }
@@ -31,8 +27,6 @@
     nav a::after { content: ''; position: absolute; bottom: -1px; left: 0; width: 0; height: 1px; background: var(--white); transition: width .22s ease; }
     nav a:hover { color: var(--white); }
     nav a:hover::after { width: 100%; }
-
-    /* Hero */
     .hero { padding: 52px 28px 40px; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: 1fr auto; align-items: flex-end; gap: 40px; margin-top: 49px; }
     .hero-headline { font-family: var(--sans); font-size: clamp(2.4rem, 5.5vw, 5rem); font-weight: 300; letter-spacing: -0.03em; line-height: 0.95; }
     .hero-headline em { font-style: italic; color: var(--mid); }
@@ -41,12 +35,8 @@
     .hero-meta { display: flex; flex-direction: column; align-items: flex-end; gap: 5px; }
     .hero-meta span { font-size: 10.5px; color: var(--dim); font-weight: 300; }
     .hero-meta span.lit { color: var(--white); }
-
-    /* Section label */
     .section-label { padding: 10px 28px; border-bottom: 1px solid var(--line); font-size: 10px; color: var(--dim); letter-spacing: .14em; text-transform: uppercase; display: flex; align-items: center; gap: 10px; }
     .section-label::before { content: ''; display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--dim); }
-
-    /* Project cards */
     .proj-card { border-bottom: 1px solid var(--line); display: grid; grid-template-columns: 1fr 420px; min-height: 270px; cursor: pointer; position: relative; overflow: hidden; transition: background .2s; }
     .proj-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: var(--white); transform: scaleY(0); transform-origin: bottom; transition: transform .22s ease; }
     .proj-card:hover { background: rgba(255,255,255,0.02); }
@@ -54,7 +44,6 @@
     .proj-card:hover .proj-cta { opacity: 1; transform: translateX(0); }
     .proj-card:hover .proj-img-inner { filter: brightness(0.9) saturate(1); transform: scale(1.04); }
     .proj-card:hover .proj-watermark { opacity: 0; }
-
     .proj-info { padding: 32px 28px; display: flex; flex-direction: column; justify-content: space-between; border-right: 1px solid var(--line); }
     .proj-info-top { display: flex; flex-direction: column; gap: 10px; }
     .proj-num { font-size: 10px; color: var(--dim); letter-spacing: .18em; }
@@ -67,20 +56,15 @@
     .proj-cta { display: flex; align-items: center; gap: 8px; font-size: 10px; color: var(--dim); letter-spacing: .1em; opacity: 0; transform: translateX(-6px); transition: opacity .2s, transform .2s; white-space: nowrap; }
     .proj-cta-arrow { font-size: 17px; transition: transform .18s; color: var(--white); }
     .proj-card:hover .proj-cta-arrow { transform: translate(2px,-2px); }
-
     .proj-img { position: relative; overflow: hidden; }
     .proj-img-inner { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.65) saturate(0.75); transition: filter .4s, transform .5s cubic-bezier(0.25,0.46,0.45,0.94); display: block; }
     .proj-watermark { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); font-family: var(--sans); font-size: 8rem; font-weight: 300; color: transparent; -webkit-text-stroke: 1px rgba(255,255,255,0.07); pointer-events: none; letter-spacing: -.04em; transition: opacity .3s; }
-
-    /* About strip */
     .about-strip { display: grid; grid-template-columns: 1fr 1fr 1fr; border-bottom: 1px solid var(--line); }
     .about-cell { padding: 32px 28px; border-right: 1px solid var(--line); }
     .about-cell:last-child { border-right: none; }
     .about-cell-label { font-size: 9px; letter-spacing: .18em; text-transform: uppercase; color: var(--dim); margin-bottom: 12px; }
     .about-cell-val { font-family: var(--sans); font-size: 13px; color: var(--mid); font-weight: 300; line-height: 1.75; }
     .about-cell-val strong { color: var(--white); font-weight: 400; }
-
-    /* Contact */
     .contact-strip { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1px solid var(--line); }
     .contact-left { padding: 36px 28px; border-right: 1px solid var(--line); }
     .contact-headline { font-family: var(--sans); font-size: clamp(1.4rem,2.5vw,2.2rem); font-weight: 300; color: var(--white); line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 24px; }
@@ -92,17 +76,12 @@
     .contact-right { padding: 36px 28px; display: flex; align-items: flex-end; }
     .contact-right p { font-size: 10px; color: var(--dim); line-height: 2; }
     .contact-right strong { color: var(--mid); font-weight: 400; }
-
     footer { border-top: 1px solid var(--line); padding: 14px 28px; display: flex; justify-content: space-between; }
     footer span { font-size: 10px; color: var(--dim); }
-
-    /* Floating hover preview */
     .preview-float { position: fixed; width: 280px; height: 185px; pointer-events: none; z-index: 9998; opacity: 0; transform: scale(0.88) translateY(12px) rotate(-1deg); transition: opacity .3s cubic-bezier(0.25,0.46,0.45,0.94), transform .35s cubic-bezier(0.25,0.46,0.45,0.94); border: 1px solid rgba(255,255,255,0.13); overflow: hidden; will-change: transform, opacity; top: 0; left: 0; }
     .preview-float.visible { opacity: 1; transform: scale(1) translateY(0) rotate(0deg); }
     .preview-float img { width: 100%; height: 100%; object-fit: cover; display: block; filter: brightness(0.88); }
     .preview-float-label { position: absolute; bottom: 0; left: 0; right: 0; padding: 10px 14px; background: linear-gradient(to top, rgba(14,14,14,0.88), transparent); font-family: var(--mono); font-size: 9px; letter-spacing: .16em; text-transform: uppercase; color: rgba(240,240,238,0.55); }
-
-    /* Overlay */
     .overlay { position: fixed; inset: 0; background: var(--bg); z-index: 1000; overflow-y: auto; opacity: 0; pointer-events: none; transform: translateY(16px); transition: opacity .38s ease, transform .38s ease; }
     .overlay.active { opacity: 1; pointer-events: all; transform: translateY(0); }
     .overlay-nav { position: sticky; top: 0; z-index: 10; display: flex; justify-content: space-between; align-items: center; padding: 18px 28px; border-bottom: 1px solid var(--line); background: rgba(14,14,14,0.92); backdrop-filter: blur(12px); }
@@ -158,8 +137,6 @@
     .reflect-cell.good .reflect-cell-label { color: #4a9e6a; }
     .reflect-cell.next .reflect-cell-label { color: #b07a3a; }
     .reflect-cell p { font-family: var(--sans); font-size: 13px; color: var(--mid); font-weight: 300; line-height: 1.75; }
-
-    /* Neuron DS */
     .neuron-ds-section { background: linear-gradient(160deg, rgba(100,39,220,0.07) 0%, rgba(100,39,220,0.03) 60%, transparent 100%); border: 1px solid rgba(100,39,220,0.2); padding: 40px; margin-bottom: 72px; position: relative; }
     .neuron-ds-section::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 100%; background: linear-gradient(to bottom, #6427DC, rgba(100,39,220,0.2)); }
     .neuron-ds-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 32px; gap: 32px; }
@@ -186,8 +163,6 @@
     .neuron-gif-caption { padding: 32px 32px 32px 0; display: flex; flex-direction: column; gap: 14px; }
     .neuron-gif-label { font-size: 9px; letter-spacing: .2em; text-transform: uppercase; color: var(--dim); display: block; }
     .neuron-gif-caption p { font-family: var(--sans); font-size: 13px; font-weight: 300; color: var(--mid); line-height: 1.75; margin: 0; }
-
-    /* Casablanca */
     .overlay-hero--dark .overlay-hero-bg img { object-position: center center; }
     .cb-fullbleed { width: 100%; }
     .cb-fullbleed a { display: block; cursor: none; }
@@ -201,8 +176,6 @@
     .cb-img-wrap { display: block; cursor: none; overflow: hidden; position: relative; }
     .cb-img-wrap img { width: 100%; height: auto; display: block; transition: transform .45s cubic-bezier(0.25,0.46,0.45,0.94), filter .3s; }
     .cb-img-wrap:hover img { transform: scale(1.02); filter: brightness(1.06); }
-
-    /* PLAYNEXT */
     .pn-accent { color: #c8f135; }
     .cb-fullbleed-pn { width: 100%; margin-bottom: 3px; }
     .cb-fullbleed-pn a { display: block; cursor: none; overflow: hidden; }
@@ -236,8 +209,6 @@
     .pn-value:hover { background: rgba(200,241,53,0.04); }
     .pn-value-word { font-size: 11px; font-weight: 500; color: #c8f135; letter-spacing: .06em; display: block; margin-bottom: 4px; }
     .pn-value-desc { font-size: 10px; color: var(--dim); font-weight: 300; line-height: 1.6; }
-
-    /* Lightbox */
     .lightbox { position: fixed; inset: 0; z-index: 9000; background: rgba(6,6,6,.96); display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity .3s ease; backdrop-filter: blur(8px); }
     .lightbox.open { opacity: 1; pointer-events: all; }
     .lightbox-inner { position: relative; max-width: 92vw; max-height: 90vh; }
@@ -254,8 +225,6 @@
     .overlay::-webkit-scrollbar { width: 3px; }
     .overlay::-webkit-scrollbar-track { background: var(--bg); }
     .overlay::-webkit-scrollbar-thumb { background: var(--dim); border-radius: 2px; }
-
-    /* Responsive */
     @media (max-width: 900px) {
       .proj-card { grid-template-columns: 1fr; min-height: auto; }
       .proj-img { height: 220px; }
@@ -495,7 +464,12 @@
   <span>Designed and built by me. Built with Next.js and deployed on Vercel.</span>
 </footer>
 
-<!-- OVERLAY: RIOT -->
+<!-- ============================================================
+     OVERLAY: RIOT — UPDATED FROM S&T TRANSCRIPT
+     Changes: Overview, Role meta, all 4 Process steps,
+              Component States caption, Party Voice caption,
+              Settings caption, Reflection (both cells)
+     ============================================================ -->
 <div class="overlay" id="overlay-riot">
   <div class="overlay-nav">
     <div class="overlay-nav-left">
@@ -523,16 +497,18 @@
     <div class="overlay-meta-strip">
       <div class="meta-cell"><div class="meta-cell-label">Company</div><div class="meta-cell-value">Riot Games</div></div>
       <div class="meta-cell"><div class="meta-cell-label">Team</div><div class="meta-cell-value">Near Game Experiences,<br/>Player Platform</div></div>
-      <div class="meta-cell"><div class="meta-cell-label">Role</div><div class="meta-cell-value">UI Designer (Intern)</div></div>
+      <div class="meta-cell"><div class="meta-cell-label">Role</div><div class="meta-cell-value">UI Designer (Intern)<br/>SDK Social</div></div>
       <div class="meta-cell"><div class="meta-cell-label">Scope</div><div class="meta-cell-value">VALORANT · League<br/>of Legends · 2XKO</div></div>
       <div class="meta-cell"><div class="meta-cell-label">Impact</div><div class="meta-cell-value"><strong>Presented to 300+</strong><br/>Rioters at capstone</div></div>
     </div>
+
     <div class="overlay-section">
       <div class="overlay-section-label">Overview</div>
-      <p>Problem: three Riot titles each had inconsistent voice chat UI — 
-        players switching games had to relearn the system every time. I designed one component set that worked across all three, including console, without requiring three separate implementations.</p>
-      <p>Result: a token-based library covering 14 states and 3 platform contexts, adopted by all three game teams and presented to 300+ Rioters.</p>
+      <p>The brief: <strong>players need to identify when they're in a voice party, know who's speaking, and easily access controls and settings to configure their voice preferences.</strong> Designing for console meant controller input only: no mouse, no hover states, no right-click; a completely different interaction model from PC.</p>
+      <p>Based on competitive research, four product needs shaped every decision: active speaker indication, individual mute and volume control, mute status reassurance, because nobody wants the moment of realising they've been talking on a live mic and clear interaction signals throughout.</p>
+      <p>Result: five core components, 14 documented states across 3 platform contexts, adopted by all three game teams and presented to 300+ Rioters at the company-wide capstone.</p>
     </div>
+
     <div class="overlay-section">
       <div class="overlay-section-label">Visual System</div>
       <div class="img-wide"><a class="zoomable" href="#" onclick="openLightbox(event,this)"><img src="/assets/full.jpg" alt="Full visual system"/></a></div>
@@ -542,15 +518,46 @@
       </div>
       <p class="img-caption">↑ Example of muting someone in your party</p>
     </div>
+
     <div class="overlay-section">
       <div class="overlay-section-label">Process</div>
       <div class="process-list">
-        <div class="process-step"><div class="ps-num">01</div><div><div class="ps-title">Component Architecture &amp; Specification</div><div class="ps-body">Built out the component library for the voice chat system — defining anatomy, interaction states, usage guidelines, and platform-specific behavior across every context.</div></div></div>
-        <div class="process-step"><div class="ps-num">02</div><div><div class="ps-title">Designer Collaboration &amp; Feedback Loops</div><div class="ps-body">Regular feedback huddles with the UX team — focused on understanding the why behind decisions, not just sign-off. That reasoning made me a stronger communicator throughout.</div></div></div>
-        <div class="process-step"><div class="ps-num">03</div><div><div class="ps-title">Engineering Feasibility</div><div class="ps-body">Engineers flagged that my mute animation required a per-frame state sync too costly for console. I proposed two alternatives — a simpler icon swap and a delayed opacity fade. We shipped the icon swap; I documented the animation as a future enhancement when performance budgets allowed."</div></div></div>
-        <div class="process-step"><div class="ps-num">04</div><div><div class="ps-title">Company-Wide Showcase</div><div class="ps-body">Presented the full system to <strong>300+ Rioters</strong> at a company-wide capstone — months of iterative work distilled into a clear narrative.</div></div></div>
+
+        <div class="process-step">
+          <div class="ps-num">01</div>
+          <div>
+            <div class="ps-title">Console-First Component Architecture</div>
+            <div class="ps-body">Designed five core components: Party Tab + Legend, Voice Settings, Voice Settings States, Micro Social Panel, and Mini Party Panel. Console-first meant every component had to account for controller input: focus states, bumper button navigation, and context menus instead of hover or right-click flows. Defined anatomy, interaction states, usage guidelines, and platform-specific behaviour across every context.</div>
+          </div>
+        </div>
+
+        <div class="process-step">
+          <div class="ps-num">02</div>
+          <div>
+            <div class="ps-title">Iteration Through Design Gem &amp; Engineering Sessions</div>
+            <div class="ps-body">My first voice settings iteration used a blurred background overlay. In design gem and engineer feedback sessions it became clear this wasn't working, too many competing elements, and the volume affordance wasn't readable. I redesigned it as a dedicated settings page with a defined console access flow: focus a player in the party tab, go to their player card, then access voice settings. The feedback loop changed the direction. That's the version that shipped.</div>
+          </div>
+        </div>
+
+        <div class="process-step">
+          <div class="ps-num">03</div>
+          <div>
+            <div class="ps-title">Engineering Feasibility &amp; Constraint-Aware Design</div>
+            <div class="ps-body">Engineers flagged that my mute animation required a per-frame state sync too costly for console. I went back to the brief, the need was reassurance, not animation. I proposed two alternatives: a simpler icon swap and a delayed opacity fade. We shipped the icon swap; I documented the animation as a future enhancement when performance budgets allowed. The tradeoff conversation was the most valuable design collaboration of the internship.</div>
+          </div>
+        </div>
+
+        <div class="process-step">
+          <div class="ps-num">04</div>
+          <div>
+            <div class="ps-title">Company-Wide Showcase</div>
+            <div class="ps-body">Presented the full system to <strong>300+ Rioters</strong> at a company-wide capstone, months of iterative work distilled into a clear narrative, covering the brief, every component decision, and the reasoning behind each tradeoff.</div>
+          </div>
+        </div>
+
       </div>
     </div>
+
     <div class="overlay-section">
       <div class="overlay-section-label">Component States</div>
       <div class="img-grid-3">
@@ -558,16 +565,18 @@
         <div class="img-sq-sm"><a class="zoomable" href="#" onclick="openLightbox(event,this)"><img src="/assets/speak.jpg" alt="Speaking state"/></a></div>
         <div class="img-sq-sm"><a class="zoomable" href="#" onclick="openLightbox(event,this)"><img src="/assets/mute.jpg" alt="Muted state"/></a></div>
       </div>
-      <p class="img-caption">↑ Social Panel → Voice Chat States: In Voice, Speaking, Muted</p>
+      <p class="img-caption">↑ Micro Social Panel → Voice Chat States: In Voice, Speaking, Muted. A blue voice ring indicator activates when speaking. A persistent muted icon gives reassurance: <strong>players are never unsure if their mic is live.</strong></p>
     </div>
+
     <div class="overlay-section">
       <div class="overlay-section-label">In-Game Party Voice Activity</div>
       <div class="img-grid-2">
         <div class="img-sq"><a class="zoomable" href="#" onclick="openLightbox(event,this)"><img src="/assets/friend_act.jpg" alt="Friend speaking in party"/></a></div>
         <div class="img-sq"><a class="zoomable" href="#" onclick="openLightbox(event,this)"><img src="/assets/speaking.jpg" alt="You speaking in party"/></a></div>
       </div>
-      <p class="img-caption">↑ In Party: friend speaking, you speaking</p>
+      <p class="img-caption">↑ Activity hierarchy: when a player speaks, their avatar and Riot ID highlight. When they stop, it fades. <strong> at a glance, you know who just spoke and who's speaking now.</strong></p>
     </div>
+
     <div class="overlay-section">
       <div class="overlay-section-label">Settings — Muting</div>
       <div class="img-grid-3">
@@ -575,20 +584,28 @@
         <div class="img-sq-sm"><a class="zoomable" href="#" onclick="openLightbox(event,this)"><img src="/assets/volume_control.jpg" alt="Volume control"/></a></div>
         <div class="img-sq-sm"><a class="zoomable" href="#" onclick="openLightbox(event,this)"><img src="/assets/mute_mic.jpg" alt="Mute mic"/></a></div>
       </div>
-      <p class="img-caption">↑ Social Panel → Muting someone during a call manually</p>
+      <p class="img-caption">↑ Voice Settings States: slider focused → active, icon appears on adjustment. Slider unfocused → resting. Mute microphone selected → slider disabled. Four states, one component, each with a deliberate trigger. Deeper settings like push-to-talk and mic selection live in the game team's existing settings.</p>
     </div>
+
     <div class="overlay-section">
       <div class="overlay-section-label">Reflection</div>
-      <p>This project taught me how to design for players at scale — making a system efficient and fluid across wildly different contexts. Consistency at that level requires every edge case to be designed, not assumed.</p>
+      <p>Console was completely new to me, I'd never designed for controller input before. That was the real learning curve: no hover states, no right-click, everything navigated through focus and button sequences. The constraint became the most interesting design problem of the internship.</p>
       <div class="reflect-grid">
-        <div class="reflect-cell good"><div class="reflect-cell-label">✓ What worked</div><p>The weekly stakeholder meetings forced me to synthesize messy in-progress work into clear decisions. The engineer feedback loop was invaluable: designing within real constraints is where the interesting problems live.</p></div>
-        <div class="reflect-cell next"><div class="reflect-cell-label">→ Next time</div><p>I'd invest more time understanding the design rationale early — asking my peer UX designers why a solution was chosen, what alternatives were considered, and what player research informed the decision.</p></div>
+        <div class="reflect-cell good">
+          <div class="reflect-cell-label">✓ What worked</div>
+          <p>The design gem and engineer feedback loops were invaluable, the blurred background iteration proves it. Designing within real constraints is where the interesting problems live, and having a team willing to push back early saved the direction. Weekly stakeholder meetings forced messy in-progress work into clear, defensible decisions.</p>
+        </div>
+        <div class="reflect-cell next">
+          <div class="reflect-cell-label">→ Next time</div>
+          <p>I'd document scope boundary decisions earlier, specifically why certain controls were kept as in-the-moment settings vs. handed off to the game team's existing settings. Those calls shaped the whole component architecture, and capturing the reasoning at the time would have made the handoff cleaner.</p>
+        </div>
       </div>
     </div>
+
   </div>
 </div>
 
-<!-- OVERLAY: NEURON -->
+<!-- OVERLAY: NEURON — unchanged from original -->
 <div class="overlay" id="overlay-neuron">
   <div class="overlay-nav">
     <div class="overlay-nav-left">
@@ -682,7 +699,7 @@
   </div>
 </div>
 
-<!-- OVERLAY: CASABLANCA -->
+<!-- OVERLAY: CASABLANCA — unchanged from original -->
 <div class="overlay" id="overlay-casablanca">
   <div class="overlay-nav">
     <div class="overlay-nav-left">
@@ -766,7 +783,7 @@
   </div>
 </div>
 
-<!-- OVERLAY: PLAYNEXT -->
+<!-- OVERLAY: PLAYNEXT — unchanged from original -->
 <div class="overlay" id="overlay-playnext">
   <div class="overlay-nav">
     <div class="overlay-nav-left">
@@ -921,7 +938,6 @@
     document.body.style.overflow = '';
   }
 
-  /* Hover preview */
   const previewFloat      = document.getElementById('previewFloat');
   const previewFloatImg   = document.getElementById('previewFloatImg');
   const previewFloatLabel = document.getElementById('previewFloatLabel');
@@ -965,7 +981,6 @@
     });
   });
 
-  /* Lightbox */
   const lightbox        = document.getElementById('lightbox');
   const lightboxImg     = document.getElementById('lightboxImg');
   const lightboxCounter = document.getElementById('lightboxCounter');
