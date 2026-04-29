@@ -473,12 +473,6 @@
   <span>Designed and built by me. Built with Next.js and deployed on Vercel.</span>
 </footer>
 
-<!-- ============================================================
-     OVERLAY: RIOT UPDATED FROM S&T TRANSCRIPT
-     Changes: Overview, Role meta, all 4 Process steps,
-              Component States caption, Party Voice caption,
-              Settings caption, Reflection (both cells)
-     ============================================================ -->
 <div class="overlay" id="overlay-riot">
   <div class="overlay-nav">
     <div class="overlay-nav-left">
@@ -561,6 +555,18 @@
         </div>
 
       </div>
+    </div>
+
+    <div class="overlay-section">
+      <div class="overlay-section-label">Design Iteration — Blurred Overlay → Settings Page</div>
+      <p>The first iteration placed voice controls directly over the game UI as a blurred background overlay. In design and engineering sessions it became clear this wasn't working — too many competing elements, the volume affordance was unreadable, and the hierarchy broke down on console where there's no hover to guide attention.</p>
+      <p>The solution was a <strong>dedicated settings page</strong> reached through a deliberate console flow: party tab → player card → voice settings. Cleaner hierarchy, zero competing elements, built for controller navigation.</p>
+      <div class="img-grid-3" style="margin-bottom: 6px;">
+        <div class="img-sq-sm"><a class="zoomable" href="#" onclick="openLightbox(event,this)"><img src="/assets/Original_UX.png" alt="Blurred overlay iteration — Original UX"/></a></div>
+        <div class="img-sq-sm"><a class="zoomable" href="#" onclick="openLightbox(event,this)"><img src="/assets/blurred.png" alt="Blurred overlay iteration"/></a></div>
+        <div class="img-sq-sm"><a class="zoomable" href="#" onclick="openLightbox(event,this)"><img src="/assets/Voice_settings_mvp.png" alt="Final dedicated Voice Settings page"/></a></div>
+      </div>
+      <p class="img-caption">↑ Iterations 1 &amp; 2: blurred overlay across two game contexts — competing elements, unclear affordance. Iteration 3: dedicated Voice Settings page. That's the version that shipped.</p>
     </div>
 
     <div class="overlay-section">
