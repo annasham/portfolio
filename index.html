@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Anna Sham — UI/UX Designer</title>
+  <title>Anna Sham UI/UX Designer</title>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;1,300&family=IBM+Plex+Sans:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -130,6 +130,15 @@
     .ps-num { font-size: 10px; color: var(--dim); padding-top: 3px; }
     .ps-title { font-size: 12.5px; font-weight: 500; color: var(--white); margin-bottom: 7px; }
     .ps-body { font-family: var(--sans); font-size: 13.5px; color: var(--mid); font-weight: 300; line-height: 1.72; }
+    .proc-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+    .proc-grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2px; }
+    .proc-card { background: rgba(255,255,255,0.02); border: 1px solid var(--line); padding: 26px 28px; position: relative; overflow: hidden; transition: background .2s; }
+    .proc-card:hover { background: rgba(255,255,255,0.04); }
+    .proc-card-bar { position: absolute; top: 0; left: 0; width: 100%; height: 2px; }
+    .proc-card .ps-num { font-size: 10px; color: var(--dim); letter-spacing: .18em; margin-bottom: 14px; display: block; }
+    .proc-card .ps-title { font-size: 13px; font-weight: 500; color: var(--white); margin-bottom: 10px; line-height: 1.3; }
+    .proc-card .ps-body { font-family: var(--sans); font-size: 13px; color: var(--mid); font-weight: 300; line-height: 1.72; }
+    @media (max-width: 900px) { .proc-grid-2, .proc-grid-3 { grid-template-columns: 1fr; } }
     .reflect-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-top: 22px; }
     .reflect-cell { background: #111; border: 1px solid var(--line); padding: 26px; transition: background .2s, border-color .2s; }
     .reflect-cell:hover { background: #161616; border-color: rgba(255,255,255,.14); }
@@ -316,7 +325,7 @@
         <div class="proj-info-top">
           <div class="proj-num">001 · Riot Games Internship</div>
           <div class="proj-title">Cross-Platform<br/>Voice Chat System</div>
-          <div class="proj-desc">A unified component system for voice chat across VALORANT, League of Legends, and 2XKO — designed for PC, console, and controller input from the ground up.</div>
+          <div class="proj-desc">A unified component system for voice chat across VALORANT, League of Legends, and 2XKO designed for PC, console, and controller input from the ground up.</div>
           <div class="proj-tags">
             <span class="ptag">Component Design</span>
             <span class="ptag">Design Systems</span>
@@ -344,7 +353,7 @@
         <div class="proj-info-top">
           <div class="proj-num">002 · Neuron Digital</div>
           <div class="proj-title">Rebrand &amp;<br/>Design System</div>
-          <div class="proj-desc">A full brand architecture and scalable UI component library — colour tokens, interaction patterns, and documented guidelines built for coherence across every surface.</div>
+          <div class="proj-desc">A full brand architecture and scalable UI component library colour tokens, interaction patterns, and documented guidelines built for coherence across every surface.</div>
           <div class="proj-tags">
             <span class="ptag">Brand Identity</span>
             <span class="ptag">Design Systems</span>
@@ -371,7 +380,7 @@
         <div class="proj-info-top">
           <div class="proj-num">003 · University Project</div>
           <div class="proj-title">Casablanca Records<br/>Brand Identity</div>
-          <div class="proj-desc">Reimagining the legendary 70s disco label — building an electrifying visual identity rooted in neon, spectacle, and cultural fearlessness.</div>
+          <div class="proj-desc">Reimagining the legendary 70s disco label building an electrifying visual identity rooted in neon, spectacle, and cultural fearlessness.</div>
           <div class="proj-tags">
             <span class="ptag">Brand Identity</span>
             <span class="ptag">Visual Design</span>
@@ -398,7 +407,7 @@
         <div class="proj-info-top">
           <div class="proj-num">004 · University Project</div>
           <div class="proj-title">PLAYNEXT<br/>Game Developer Conference</div>
-          <div class="proj-desc">End-to-end event brand for an indie game developer conference celebrating activism in gaming — identity, motion, print, social, and merch built from scratch.</div>
+          <div class="proj-desc">End-to-end event brand for an indie game developer conference celebrating activism in gaming identity, motion, print, social, and merch built from scratch.</div>
           <div class="proj-tags">
             <span class="ptag">Event Branding</span>
             <span class="ptag">Motion Design</span>
@@ -425,11 +434,11 @@
     <div class="about-strip reveal">
       <div class="about-cell">
         <div class="about-cell-label">Currently</div>
-        <div class="about-cell-val"><strong>Visual Designer at Intertek Alchemy</strong>, creating systems and experiences that make work safer. Previously <strong>Riot Games</strong> — cross-platform player experiences across VALORANT, League of Legends, and 2XKO.</div>
+        <div class="about-cell-val"><strong>Visual Designer at Intertek Alchemy</strong>, creating systems and experiences that make work safer. Previously <strong>Riot Games</strong> cross-platform player experiences across VALORANT, League of Legends, and 2XKO.</div>
       </div>
       <div class="about-cell">
         <div class="about-cell-label">Approach</div>
-        <div class="about-cell-val">My work sits at the intersection of <strong>systems thinking and visual craft</strong> — scalable, coherent design built from tokens to touchpoints. I care about the why behind every decision, not just the output.</div>
+        <div class="about-cell-val">My work sits at the intersection of <strong>systems thinking and visual craft</strong> scalable, coherent design built from tokens to touchpoints. I care about the why behind every decision, not just the output.</div>
       </div>
       <div class="about-cell">
         <div class="about-cell-label">Open to</div>
@@ -460,12 +469,12 @@
 </main>
 
 <footer>
-  <span>Anna Sham — Portfolio</span>
+  <span>Anna Sham Portfolio</span>
   <span>Designed and built by me. Built with Next.js and deployed on Vercel.</span>
 </footer>
 
 <!-- ============================================================
-     OVERLAY: RIOT — UPDATED FROM S&T TRANSCRIPT
+     OVERLAY: RIOT UPDATED FROM S&T TRANSCRIPT
      Changes: Overview, Role meta, all 4 Process steps,
               Component States caption, Party Voice caption,
               Settings caption, Reflection (both cells)
@@ -504,8 +513,8 @@
 
     <div class="overlay-section">
       <div class="overlay-section-label">Overview</div>
-      <p>The brief: <strong>players need to identify when they're in a voice party, know who's speaking, and easily access controls and settings to configure their voice preferences.</strong></p>
-      <p>Based on competitive research, four product needs shaped every decision: active speaker indication, individual mute and volume control, mute status reassurance, because nobody wants the moment of realising they've been talking on a live mic and clear interaction signals throughout.</p>
+      <p><strong>Players need to identify when they're in a voice party, know who's speaking, and easily access controls and settings to configure their voice preferences.</strong></p>
+      <p>Based on competitive research, four product needs shaped every decision: active speaker indication, individual mute and volume control, mute status reassurance (because nobody wants the moment of realising they've been talking on a live mic), and clear interaction signals throughout.</p>
       <p>Result: five core components, 14 documented states across 3 platform contexts, adopted by all three game teams and presented to 300+ Rioters at the company-wide capstone.</p>
     </div>
 
@@ -521,38 +530,34 @@
 
     <div class="overlay-section">
       <div class="overlay-section-label">Process</div>
-      <div class="process-list">
+      <div class="proc-grid-2">
 
-        <div class="process-step">
-          <div class="ps-num">01</div>
-          <div>
-            <div class="ps-title">Console-First Component Architecture</div>
-            <div class="ps-body">Designed five core components: Party Tab + Legend, Voice Settings, Voice Settings States, Micro Social Panel, and Mini Party Panel. Console-first meant every component had to account for controller input: focus states, bumper button navigation, and context menus instead of hover or right-click flows. Defined anatomy, interaction states, usage guidelines, and platform-specific behaviour across every context.</div>
-          </div>
+        <div class="proc-card">
+          <div class="proc-card-bar" style="background:#5DCAA5;"></div>
+          <span class="ps-num">01</span>
+          <div class="ps-title">Console-first component architecture</div>
+          <div class="ps-body">Five components built for controller input focus states, bumper button navigation, and context menus instead of hover or right-click flows. Party Tab + Legend, Voice Settings, Voice Settings States, Micro Social Panel, Mini Party Panel. Anatomy, states, and guidelines defined for every platform context.</div>
         </div>
 
-        <div class="process-step">
-          <div class="ps-num">02</div>
-          <div>
-            <div class="ps-title">Iteration Through Jungling (Team Meetings) &amp; Engineering Sessions</div>
-            <div class="ps-body">My first voice settings iteration used a blurred background overlay. In team meetings and engineer feedback sessions it became clear this wasn't working, too many competing elements, and the volume affordance wasn't readable. I redesigned it as a dedicated settings page with a defined console access flow: focus a player in the party tab, go to their player card, then access voice settings. The feedback loop changed the direction. That's the version that shipped.</div>
-          </div>
+        <div class="proc-card">
+          <div class="proc-card-bar" style="background:#AFA9EC;"></div>
+          <span class="ps-num">02</span>
+          <div class="ps-title">Design gem &amp; engineering feedback loops</div>
+          <div class="ps-body">First voice settings iteration used a blurred background overlay. Design gem and engineer sessions revealed it wasn't working too many competing elements, volume affordance unclear. Rebuilt as a dedicated settings page with a defined access flow: focus player → player card → voice settings. That's the version that shipped.</div>
         </div>
 
-        <div class="process-step">
-          <div class="ps-num">03</div>
-          <div>
-            <div class="ps-title">Engineering Feasibility &amp; Constraint-Aware Design</div>
-            <div class="ps-body">Engineers flagged that my mute animation required a per-frame state sync too costly for console. I went back to the brief, the need was reassurance, not animation. I proposed two alternatives: a simpler icon swap and a delayed opacity fade. We shipped the icon swap; I documented the animation as a future enhancement when performance budgets allowed. The tradeoff conversation was the most valuable design collaboration of the internship.</div>
-          </div>
+        <div class="proc-card">
+          <div class="proc-card-bar" style="background:#F0C97A;"></div>
+          <span class="ps-num">03</span>
+          <div class="ps-title">Constraint-aware design</div>
+          <div class="ps-body">Mute animation required per-frame state sync too costly for console. Went back to the brief: the need was reassurance, not motion. Proposed icon swap and opacity fade. Shipped the icon swap; documented the animation as a future enhancement when performance budgets allowed.</div>
         </div>
 
-        <div class="process-step">
-          <div class="ps-num">04</div>
-          <div>
-            <div class="ps-title">Company-Wide Showcase</div>
-            <div class="ps-body">Presented the full system to <strong>300+ Rioters</strong> at a company-wide capstone, months of iterative work distilled into a clear narrative, covering the brief, every component decision, and the reasoning behind each tradeoff.</div>
-          </div>
+        <div class="proc-card">
+          <div class="proc-card-bar" style="background:#7c7c78;"></div>
+          <span class="ps-num">04</span>
+          <div class="ps-title">Company-wide showcase</div>
+          <div class="ps-body">Presented the full system to <strong>300+ Rioters</strong> at the company-wide capstone brief, component decisions, and every tradeoff distilled into one clear narrative.</div>
         </div>
 
       </div>
@@ -565,7 +570,7 @@
         <div class="img-sq-sm"><a class="zoomable" href="#" onclick="openLightbox(event,this)"><img src="/assets/speak.jpg" alt="Speaking state"/></a></div>
         <div class="img-sq-sm"><a class="zoomable" href="#" onclick="openLightbox(event,this)"><img src="/assets/mute.jpg" alt="Muted state"/></a></div>
       </div>
-      <p class="img-caption">↑ Micro Social Panel → Voice Chat States: In Voice, Speaking, Muted. A blue voice ring indicator activates when speaking. A persistent muted icon gives reassurance: <strong>players are never unsure if their mic is live.</strong></p>
+      <p class="img-caption">↑ Micro Social Panel → Voice Chat States: In Voice, Speaking, Muted. A blue voice ring indicator activates when speaking. A persistent muted icon gives reassurance players are never unsure if their mic is live.</p>
     </div>
 
     <div class="overlay-section">
@@ -574,30 +579,30 @@
         <div class="img-sq"><a class="zoomable" href="#" onclick="openLightbox(event,this)"><img src="/assets/friend_act.jpg" alt="Friend speaking in party"/></a></div>
         <div class="img-sq"><a class="zoomable" href="#" onclick="openLightbox(event,this)"><img src="/assets/speaking.jpg" alt="You speaking in party"/></a></div>
       </div>
-      <p class="img-caption">↑ Activity hierarchy: when a player speaks, their avatar and Riot ID highlight. When they stop, it fades. <strong> at a glance, you know who just spoke and who's speaking now.</strong></p>
+      <p class="img-caption">↑ Activity hierarchy: when a player speaks, their avatar and Riot ID highlight. When they stop, it fades. At a glance, you know who just spoke and who's speaking now no label needed.</p>
     </div>
 
     <div class="overlay-section">
-      <div class="overlay-section-label">Settings — Muting</div>
+      <div class="overlay-section-label">Settings Muting</div>
       <div class="img-grid-3">
         <div class="img-sq-sm"><a class="zoomable" href="#" onclick="openLightbox(event,this)"><img src="/assets/profile_change.jpg" alt="Profile change"/></a></div>
         <div class="img-sq-sm"><a class="zoomable" href="#" onclick="openLightbox(event,this)"><img src="/assets/volume_control.jpg" alt="Volume control"/></a></div>
         <div class="img-sq-sm"><a class="zoomable" href="#" onclick="openLightbox(event,this)"><img src="/assets/mute_mic.jpg" alt="Mute mic"/></a></div>
       </div>
-      <p class="img-caption">↑ Voice Settings States: slider focused → active, icon appears on adjustment. Slider unfocused → resting. Mute microphone selected → slider disabled. Four states, one component, each with a deliberate trigger. Deeper settings like push-to-talk and mic selection live in the game team's existing settings.</p>
+      <p class="img-caption">↑ Voice Settings States: slider focused → active, icon appears on adjustment. Slider unfocused → resting. Mute microphone selected → slider disabled. Four states, one component, each with a deliberate trigger. Deeper settings like push-to-talk and mic selection live in the game team's existing settings this page handles in-the-moment controls only.</p>
     </div>
 
     <div class="overlay-section">
       <div class="overlay-section-label">Reflection</div>
-      <p>Console was completely new to me, I'd never designed for controller input before. That was the real learning curve: no hover states, no right-click, everything navigated through focus and button sequences. The constraint became the most interesting design problem of the internship.</p>
+      <p>Console was completely new to me I'd never designed for controller input before. That was the real learning curve: no hover states, no right-click, everything navigated through focus and button sequences. The constraint became the most interesting design problem of the internship.</p>
       <div class="reflect-grid">
         <div class="reflect-cell good">
           <div class="reflect-cell-label">✓ What worked</div>
-          <p>The design gem and engineer feedback loops were invaluable, the blurred background iteration proves it. Designing within real constraints is where the interesting problems live, and having a team willing to push back early saved the direction. Weekly stakeholder meetings forced messy in-progress work into clear, defensible decisions.</p>
+          <p>The design gem and engineer feedback loops were invaluable the blurred background iteration proves it. Designing within real constraints is where the interesting problems live, and having a team willing to push back early saved the direction. Weekly stakeholder meetings forced messy in-progress work into clear, defensible decisions.</p>
         </div>
         <div class="reflect-cell next">
           <div class="reflect-cell-label">→ Next time</div>
-          <p>I'd document scope boundary decisions earlier, specifically why certain controls were kept as in-the-moment settings vs. handed off to the game team's existing settings. Those calls shaped the whole component architecture, and capturing the reasoning at the time would have made the handoff cleaner.</p>
+          <p>I'd document scope boundary decisions earlier specifically why certain controls were kept as in-the-moment settings vs. handed off to the game team's existing settings. Those calls shaped the whole component architecture, and capturing the reasoning at the time would have made the handoff cleaner.</p>
         </div>
       </div>
     </div>
@@ -605,7 +610,7 @@
   </div>
 </div>
 
-<!-- OVERLAY: NEURON — unchanged from original -->
+<!-- OVERLAY: NEURON unchanged from original -->
 <div class="overlay" id="overlay-neuron">
   <div class="overlay-nav">
     <div class="overlay-nav-left">
@@ -638,7 +643,7 @@
     </div>
     <div class="overlay-section">
       <div class="overlay-section-label">Overview</div>
-      <p>A full rebrand and design system for Neuron Digital — not just a visual refresh, but a <strong>scalable brand architecture</strong> built to grow with the company across products, platforms, and contexts.</p>
+      <p>A full rebrand and design system for Neuron Digital not just a visual refresh, but a <strong>scalable brand architecture</strong> built to grow with the company across products, platforms, and contexts.</p>
       <p>The goal was coherence without rigidity: a system flexible enough to expand into new surfaces while maintaining a clear, ownable visual identity.</p>
     </div>
     <div class="overlay-section">
@@ -655,23 +660,42 @@
         <img src="/assets/neuron-motion.gif" alt="Neuron motion design" class="neuron-gif"/>
         <div class="neuron-gif-caption">
           <span class="neuron-gif-label">Motion Design</span>
-          <p>Animation principles applied across the brand — bringing the identity to life through considered motion that reinforces hierarchy and guides attention.</p>
+          <p>Animation principles applied across the brand bringing the identity to life through considered motion that reinforces hierarchy and guides attention.</p>
         </div>
       </div>
     </div>
     <div class="overlay-section">
       <div class="overlay-section-label">Process</div>
-      <div class="process-list">
-        <div class="process-step"><div class="ps-num">01</div><div><div class="ps-title">Brand Audit &amp; Strategy</div><div class="ps-body">Evaluated existing brand equity, identified what to preserve and what to evolve. Defined the strategic direction before touching any visuals.</div></div></div>
-        <div class="process-step"><div class="ps-num">02</div><div><div class="ps-title">Visual Language Development</div><div class="ps-body">Built the visual system from the ground up — typography, color, spacing, iconography, and motion principles that give Neuron Digital a consistent, ownable identity.</div></div></div>
-        <div class="process-step"><div class="ps-num">03</div><div><div class="ps-title">Component System &amp; Documentation</div><div class="ps-body">Translated the brand into a scalable UI component library with clear usage guidelines — ensuring the system could be handed off and extended by any team member.</div></div></div>
+      <div class="proc-grid-3">
+
+        <div class="proc-card">
+          <div class="proc-card-bar" style="background:#AFA9EC;"></div>
+          <span class="ps-num">01</span>
+          <div class="ps-title">Brand audit &amp; strategy</div>
+          <div class="ps-body">Evaluated existing brand equity identified what to preserve and what to evolve. Defined the strategic direction before touching any visuals.</div>
+        </div>
+
+        <div class="proc-card">
+          <div class="proc-card-bar" style="background:#6427DC;"></div>
+          <span class="ps-num">02</span>
+          <div class="ps-title">Visual language development</div>
+          <div class="ps-body">Built the visual system from scratch typography, colour, spacing, iconography, and motion principles that give Neuron Digital a consistent, ownable identity.</div>
+        </div>
+
+        <div class="proc-card">
+          <div class="proc-card-bar" style="background:#9a6ef5;"></div>
+          <span class="ps-num">03</span>
+          <div class="ps-title">Component system &amp; documentation</div>
+          <div class="ps-body">Translated the brand into a scalable UI component library usage guidelines, naming conventions, and documented patterns so any team member could extend the system without breaking coherence.</div>
+        </div>
+
       </div>
     </div>
     <div class="overlay-section neuron-ds-section">
       <div class="neuron-ds-header">
         <div class="neuron-ds-header-left">
           <div class="overlay-section-label ds-label-inline">Design System</div>
-          <p class="neuron-ds-desc">A full component library and visual language — colour tokens, interactive states, and documented patterns built to scale across every Neuron surface.</p>
+          <p class="neuron-ds-desc">A full component library and visual language colour tokens, interactive states, and documented patterns built to scale across every Neuron surface.</p>
         </div>
         <div class="neuron-ds-header-right">
           <span class="neuron-ds-pill">Components</span>
@@ -699,12 +723,12 @@
   </div>
 </div>
 
-<!-- OVERLAY: CASABLANCA — unchanged from original -->
+<!-- OVERLAY: CASABLANCA unchanged from original -->
 <div class="overlay" id="overlay-casablanca">
   <div class="overlay-nav">
     <div class="overlay-nav-left">
       <span class="overlay-label">University Project &nbsp;·&nbsp; #003</span>
-      <span class="overlay-title-small">Casablanca Records — Brand Identity</span>
+      <span class="overlay-title-small">Casablanca Records Brand Identity</span>
     </div>
     <button class="close-btn" onclick="closeOverlay('casablanca')">Close ✕</button>
   </div>
@@ -733,7 +757,7 @@
     </div>
     <div class="overlay-section">
       <div class="overlay-section-label">Overview</div>
-      <p>Casablanca Records defined 1970s excess — home to <strong>KISS, Donna Summer, Parliament, and the Village People</strong>. A label built on spectacle and fearless self-expression.</p>
+      <p>Casablanca Records defined 1970s excess home to <strong>KISS, Donna Summer, Parliament, and the Village People</strong>. A label built on spectacle and fearless self-expression.</p>
       <p>The brief: give this brand a <strong>bright, electrifying personality</strong> that captures disco as a cultural force, not just a sound.</p>
     </div>
   </div>
@@ -767,9 +791,9 @@
     <div class="overlay-section">
       <div class="overlay-section-label">Concept</div>
       <div class="process-list">
-        <div class="process-step"><div class="ps-num">01</div><div><div class="ps-title">Disco as Futurism</div><div class="ps-body">In the 70s, disco was modernity — a vision of the future through sequins and strobes. The visual language needed that same charge: electric, luminous, unapologetically bold.</div></div></div>
-        <div class="process-step"><div class="ps-num">02</div><div><div class="ps-title">The Roster as a Compass</div><div class="ps-body">Every decision filtered through the acts: KISS, Donna Summer, Village People, Cher — a lineage stretching to Tiësto, SG Lewis, and KUNGS. Spectacle and soul in equal measure.</div></div></div>
-        <div class="process-step"><div class="ps-num">03</div><div><div class="ps-title">Neon as Identity</div><div class="ps-body">Warm, glowing, slightly imperfect — the kind of sign burning at 2am that pulls you in from across the street. Neon became the core visual metaphor for everything the label stood for.</div></div></div>
+        <div class="process-step"><div class="ps-num">01</div><div><div class="ps-title">Disco as Futurism</div><div class="ps-body">In the 70s, disco was modernity a vision of the future through sequins and strobes. The visual language needed that same charge: electric, luminous, unapologetically bold.</div></div></div>
+        <div class="process-step"><div class="ps-num">02</div><div><div class="ps-title">The Roster as a Compass</div><div class="ps-body">Every decision filtered through the acts: KISS, Donna Summer, Village People, Cher a lineage stretching to Tiësto, SG Lewis, and KUNGS. Spectacle and soul in equal measure.</div></div></div>
+        <div class="process-step"><div class="ps-num">03</div><div><div class="ps-title">Neon as Identity</div><div class="ps-body">Warm, glowing, slightly imperfect the kind of sign burning at 2am that pulls you in from across the street. Neon became the core visual metaphor for everything the label stood for.</div></div></div>
       </div>
     </div>
     <div class="overlay-section">
@@ -777,18 +801,18 @@
       <p>Working on a real cultural artifact forced me to think about what a brand <em>feels like</em>, not just what it looks like. The 70s constraint pushed me toward a bolder, more atmospheric visual language than I'd normally reach for.</p>
       <div class="reflect-grid">
         <div class="reflect-cell good"><div class="reflect-cell-label">✓ What worked</div><p>Leading with emotion and era rather than trying to modernise the brand. The neon treatment gave the identity an immediacy that felt true to the label's personality.</p></div>
-        <div class="reflect-cell next"><div class="reflect-cell-label">→ Next time</div><p>I'd push further into the full system — how does this identity live on merchandise, packaging, and digital? The sign is a strong anchor; I'd want to build more surfaces around it.</p></div>
+        <div class="reflect-cell next"><div class="reflect-cell-label">→ Next time</div><p>I'd push further into the full system how does this identity live on merchandise, packaging, and digital? The sign is a strong anchor; I'd want to build more surfaces around it.</p></div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- OVERLAY: PLAYNEXT — unchanged from original -->
+<!-- OVERLAY: PLAYNEXT unchanged from original -->
 <div class="overlay" id="overlay-playnext">
   <div class="overlay-nav">
     <div class="overlay-nav-left">
       <span class="overlay-label">University Project &nbsp;·&nbsp; #004</span>
-      <span class="overlay-title-small">PLAYNEXT — Game Developer Conference</span>
+      <span class="overlay-title-small">PLAYNEXT Game Developer Conference</span>
     </div>
     <button class="close-btn" onclick="closeOverlay('playnext')">Close ✕</button>
   </div>
@@ -818,8 +842,8 @@
     </div>
     <div class="overlay-section">
       <div class="overlay-section-label">Overview</div>
-      <p><strong>PLAYNEXT</strong> is an all-inclusive game developer conference celebrating indie developers from around the world — specifically games that weave <strong>current events and socio-political themes</strong> into interactive experiences.</p>
-      <p>PLAYNEXT champions games as a medium for activism: a platform where Inclusivity, Diversity, Innovation, the Metaverse, and Freedom aren't just buzzwords — they're the brief.</p>
+      <p><strong>PLAYNEXT</strong> is an all-inclusive game developer conference celebrating indie developers from around the world specifically games that weave <strong>current events and socio-political themes</strong> into interactive experiences.</p>
+      <p>PLAYNEXT champions games as a medium for activism: a platform where Inclusivity, Diversity, Innovation, the Metaverse, and Freedom aren't just buzzwords. They're the brief.</p>
       <div class="pn-values-strip">
         <div class="pn-value"><span class="pn-value-word">Inclusivity</span><span class="pn-value-desc">Games for everyone,<br/>designed without exception</span></div>
         <div class="pn-value"><span class="pn-value-word">Diversity</span><span class="pn-value-desc">Voices from every<br/>corner of the world</span></div>
@@ -877,10 +901,10 @@
     </div>
     <div class="overlay-section">
       <div class="overlay-section-label">Reflection</div>
-      <p>My professor challenged me to design a brand that held real political weight without feeling heavy-handed. The visual language had to feel energised and accessible — something that says "this is serious, and it's going to be fun."</p>
+      <p>My professor challenged me to design a brand that held real political weight without feeling heavy-handed. The visual language had to feel energised and accessible something that says "this is serious, and it's going to be fun."</p>
       <div class="reflect-grid">
         <div class="reflect-cell good"><div class="reflect-cell-label">✓ What worked</div><p>Anchoring the identity in the five PLAY-in values gave every design decision a clear filter. The neon-green accent and bold type system made the brand instantly readable at poster scale and thumbnail scale alike.</p></div>
-        <div class="reflect-cell next"><div class="reflect-cell-label">→ Next time</div><p>I'd develop the motion system earlier — the speaker slides and logo animation shaped a lot of the static work, and building those first would have tightened the overall coherence.</p></div>
+        <div class="reflect-cell next"><div class="reflect-cell-label">→ Next time</div><p>I'd develop the motion system earlier the speaker slides and logo animation shaped a lot of the static work, and building those first would have tightened the overall coherence.</p></div>
       </div>
     </div>
   </div>
