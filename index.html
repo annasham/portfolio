@@ -508,8 +508,9 @@
     <div class="overlay-section">
       <div class="overlay-section-label">Overview</div>
       <p><strong>Players need to identify when they're in a voice party, know who's speaking, and easily access controls and settings to configure their voice preferences.</strong></p>
-      <p>Based on competitive research, four product needs shaped every decision: active speaker indication, individual mute and volume control, mute status reassurance (because nobody wants the moment of realising they've been talking on a live mic), and clear interaction signals throughout.</p>
-      <p>Result: five core components, 14 documented states across 3 platform contexts, adopted by all three game teams and presented to 300+ Rioters at the company-wide capstone.</p>
+      <p>I came into this project as a player first. I know what it feels like to be mid-match and not know if your mic is live, or to need to mute someone without losing focus on the game. That firsthand perspective, cross-referenced with tools like Discord that players already have muscle memory for, shaped every instinct I brought to this work.
+Working with the UX designers on my team, we landed on four things that actually mattered: clear speaker indication, fast mute and volume control, reassurance of your own mute state, and unambiguous interaction signals throughout.
+Result: five core components, 14 documented states across 3 platform contexts, adopted across VALORANT, League of Legends, and 2XKO, presented to 300+ Rioters at the company-wide capstone.</p>
     </div>
 
     <div class="overlay-section">
@@ -520,14 +521,14 @@
           <div class="proc-card-bar" style="background:#5DCAA5;"></div>
           <span class="ps-num">01</span>
           <div class="ps-title">Console-first component architecture</div>
-          <div class="ps-body">Five components built for controller input focus states, bumper button navigation, and context menus instead of hover or right-click flows. Party Tab + Legend, Voice Settings, Voice Settings States, Micro Social Panel, Mini Party Panel. Anatomy, states, and guidelines defined for every platform context.</div>
+          <div class="ps-body">One of the first structural calls I made was separating the party into its own tab. Previously it was stacked with the friends list. As a player I knew that friction was real when you need to act fast mid-match. Pulling it out made the space focused, scannable, and action-oriented. From there: five components built for controller input — focus states, bumper navigation, context menus instead of hover. Party Tab, Voice Settings, Voice Settings States, Micro Social Panel, Mini Party Panel.</div>
         </div>
 
         <div class="proc-card">
           <div class="proc-card-bar" style="background:#AFA9EC;"></div>
           <span class="ps-num">02</span>
           <div class="ps-title">Design Team Jungling (Meeting) &amp; engineering feedback loops</div>
-          <div class="ps-body">First voice settings iteration used a blurred background overlay. Team Jungling and engineer sessions revealed it wasn't working too many competing elements, volume affordance unclear. Rebuilt as a dedicated settings page with a defined access flow: focus player → player card → voice settings. That's the version that shipped.</div>
+          <div class="ps-body">My first instinct was a blurred background overlay. It felt contextual, in-game, familiar. But running it through design and engineering sessions, it fell apart. On a controller with focus-based navigation, competing elements don't just feel cluttered, they break the interaction entirely. The volume slider disappeared into the background. Working closely with the UX designers on system logic and the engineers on console constraints, we rebuilt it as a dedicated settings page. Flow: party tab → player card → voice settings. Scoped deliberately to in-the-moment controls only.</div>
         </div>
 
         <div class="proc-card">
@@ -550,13 +551,13 @@
     <div class="overlay-section">
       <div class="overlay-section-label">Design Iteration — Blurred Overlay → Settings Page</div>
       <p>The first iteration placed voice controls directly over the game UI as a blurred background overlay. In design and engineering sessions it became clear this wasn't working — too many competing elements, the volume affordance was unreadable, and the hierarchy broke down on console where there's no hover to guide attention.</p>
-      <p>The solution was a <strong>dedicated settings page</strong> reached through a deliberate console flow: party tab → player card → voice settings. Cleaner hierarchy, zero competing elements, built for controller navigation.</p>
+      <p>The blurred background had too many competing elements and the volume affordance was invisible on controller. The dedicated settings page came out of that collaboration: cleaner hierarchy, one job per screen, built for focus-based navigation.</p>
       <div class="img-grid-3" style="margin-bottom: 6px;">
         <div class="img-sq-sm"><a class="zoomable" href="#" onclick="openLightbox(event,this)"><img src="/assets/Original_UX.png" alt="Blurred overlay iteration — Original UX"/></a></div>
         <div class="img-sq-sm"><a class="zoomable" href="#" onclick="openLightbox(event,this)"><img src="/assets/blurred.png" alt="Blurred overlay iteration"/></a></div>
         <div class="img-sq-sm"><a class="zoomable" href="#" onclick="openLightbox(event,this)"><img src="/assets/Voice_settings_mvp.png" alt="Final dedicated Voice Settings page"/></a></div>
       </div>
-      <p class="img-caption">↑ Iterations 1 &amp; 2: blurred overlay across two game contexts — competing elements, unclear affordance. Iteration 3: dedicated Voice Settings page. That's the version that shipped.</p>
+      <p class="img-caption">↑ Left: blurred overlay iterations across two game contexts — instinctive, but broke down on console. Right: dedicated Voice Settings page. My player instinct, refined through the team. That's the version that shipped.</p>
     </div>
 
     <div class="overlay-section">
@@ -627,15 +628,15 @@
 
     <div class="overlay-section">
       <div class="overlay-section-label">Reflection</div>
-      <p>Console was completely new to me I'd never designed for controller input before. That was the real learning curve: no hover states, no right-click, everything navigated through focus and button sequences. The constraint became the most interesting design problem of the internship.</p>
+      <p>Console was completely new to me (as a designer). I'd never designed for controller input before. But coming in as a player meant I understood the stakes. You can't rely on hover, you can't layer UI and expect people to parse it, every state has to be unambiguous at a glance. That constraint didn't limit the design, it made it sharper.</p>
       <div class="reflect-grid">
         <div class="reflect-cell good">
           <div class="reflect-cell-label">✓ What worked</div>
-          <p>The design jungling (meeting) and engineer feedback loops were invaluable the blurred background iteration proves it. Designing within real constraints is where the interesting problems live, and having a team willing to push back early saved the direction. Weekly stakeholder meetings forced messy in-progress work into clear, defensible decisions.</p>
+          <p>The collaboration loop between player instinct, UX systems thinking, and engineering constraints is what made this work. My first overlay iteration proves it, I needed the team to pressure-test what I thought I knew. Having designers and engineers willing to push back early, and weekly stakeholder check-ins that forced clarity on messy in-progress work, saved the direction more than once.</p>
         </div>
         <div class="reflect-cell next">
           <div class="reflect-cell-label">→ Next time</div>
-          <p>I'd document scope boundary decisions earlier specifically why certain controls were kept as in-the-moment settings vs. handed off to the game team's existing settings. Those calls shaped the whole component architecture, and capturing the reasoning at the time would have made the handoff cleaner.</p>
+          <p>I'd document scope boundary decisions earlier. Specifically why certain controls stayed as in-the-moment settings versus handing off to the game team's existing settings. Those calls shaped the whole component architecture and capturing the reasoning at the time would have made the handoff cleaner.</p>
         </div>
       </div>
     </div>
