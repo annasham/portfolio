@@ -359,11 +359,12 @@ nav a:hover { color: var(--white); }
   align-items: center;
   gap: 6px;
 }
+/*
 .gallery-label::before { content: '('; }
 .gallery-label::after  { content: ')'; }
 .section-label::before { content: '('; }
 .section-label::after  { content: ')'; }
-
+*/
 .project-row {
   border-bottom: 1px solid var(--line);
   display: grid;
